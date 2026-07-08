@@ -3,3 +3,63 @@
 
 This version has breaking changes — APIs, conventions, and file structure may all differ from your training data. Read the relevant guide in `node_modules/next/dist/docs/` before writing any code. Heed deprecation notices.
 <!-- END:nextjs-agent-rules -->
+
+# Sueños de una Monarca — project summary
+
+Promotional/informational website for the documentary *Sueños de una Monarca* (Dreams of a Monarch), about Claudia Galeno-Sánchez's monarch butterfly conservation work in Pilsen, Chicago. Built with Next.js 16 (App Router, Turbopack), TypeScript, Tailwind v4, `next-intl` (English/Spanish), and Supabase.
+
+**Repo**: `monarcasdoc-blip/monarchDreams` on GitHub, `main` branch. Local git pushes authenticate as GitHub user `kinoquizzes`, who is a collaborator on the repo (not the owner) — that's expected, not a misconfiguration.
+
+**Hosting**: Vercel (Hobby/free tier), auto-deploys on every push to `main`.
+
+## Pages (all under `app/[locale]/`, EN default / ES at `/es`)
+
+- **Home** (`page.tsx`) — full-bleed looping background video (`/videos/hero-1.mp4`: monarch colony → Claudia holding one), hero text, synopsis, milkweed impact stat, screenings teaser.
+- **About** (`about/`) — synopsis, "Story Behind the Story" section (background is `/videos/hero-2.mp4`, Dylan's animated illustration — this is an intentional exception to the "stills only on interior pages" rule below), crew grid. No gallery section (removed per request).
+- **Screenings** (`screenings/`) — hero banner uses still photo `stills[1]` (still-2.png). Upcoming/past screening lists.
+- **Host a Screening** (`host-a-screening/`) — form, emails via Resend.
+- **Take Action** (`take-action/`) — hero banner uses still photo `stills[6]` (still-7.jpg, the mural photo), cropped via `objectPosition="center 5%"` to keep the raised arm/mural visible. Action cards including a link to Milkweed Map.
+- **Milkweed Map** (`milkweed-map/` + `milkweed-map/submit/`) — see below.
+- **Contact** (`contact/`) — form (name/email/message), emails via Resend. No more mailto link.
+
+**Design rule established with the user**: only the Home page and the About "Story Behind the Story" section use video backgrounds (`HeroVideo` component). Screenings and Take Action use still-photo backgrounds (`HeroImage` component) with per-page `objectPosition` tuning — don't re-add video heroes to those without being asked.
+
+## Content & i18n
+
+- `data/content.ts` — non-translatable structured data: film info, screenings list, crew (slug/name/headshot/optional `headshotPosition` for per-photo crop tuning), stills paths, impact stat, donate info.
+- `messages/en.json` / `messages/es.json` — all UI copy and translatable prose (crew bios/roles keyed by slug, page copy, form labels), loaded via `next-intl`.
+- `i18n/routing.ts`, `i18n/navigation.ts`, `i18n/request.ts` — next-intl config. Locale-aware `Link`/`redirect`/etc. come from `@/i18n/navigation`, not `next/navigation`.
+- `proxy.ts` (not `middleware.ts` — Next 16 renamed the convention) wraps next-intl's routing middleware.
+
+## Milkweed Map feature
+
+User-submitted photos of planted milkweed, shown as pins on a Leaflet map (`components/MilkweedMap.tsx`, CartoDB Positron tiles, custom monarch-pod marker icon at `public/images/milkweed-marker.svg`).
+
+Flow: submitter fills out `/milkweed-map/submit` (`PlantMilkweedForm.tsx`) → photo uploads client-side straight to Supabase Storage bucket `milkweed-photos` → form POSTs to `/api/plant-milkweed` → route geocodes the address via Nominatim (`lib/geocode.ts`), **jitters coordinates ~0.5mi for privacy**, inserts a row with `status: 'pending'`. Nothing shows publicly until a project admin flips `status` to `approved` directly in the Supabase Table Editor — there is no in-app admin UI by design (MVP decision, revisit only if asked). The map page reads from the `public_milkweed_pins` view, which only exposes approved rows and never the private `email`/`address` columns.
+
+Schema + RLS policies + storage bucket setup SQL: `supabase/schema.sql` (already run against the live Supabase project). Supabase client: `lib/supabase/client.ts`, exports `null` if env vars are missing so callers must handle the not-configured case explicitly.
+
+**Known cleanup needed**: two test rows (`test@example.com`, `deploycheck@example.com`) are sitting in the `milkweed_submissions` table from development testing — delete them via the Supabase dashboard before real moderation begins.
+
+## Email (Resend)
+
+`app/api/host-a-screening/route.ts`, `app/api/contact/route.ts`, and the Plant Milkweed flow (Supabase, not email) all follow the same pattern: validate → return a graceful "not configured" error if `RESEND_API_KEY` is unset. **Resend is not yet configured** — blocked on the user purchasing a domain (they have the API key ready). Once a domain exists: add `RESEND_API_KEY` and `RESEND_FROM_EMAIL` to `.env.local` (see `.env.example`) and to Vercel's project env vars, verify the domain in Resend's dashboard, then test both forms end-to-end.
+
+## Environment variables
+
+See `.env.example`. `NEXT_PUBLIC_SUPABASE_URL` and `NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY` are already set in `.env.local` (gitignored) and need to be added to Vercel's project settings too if not already done. The Supabase publishable key is meant to be public/client-exposed — safe to share.
+
+## Assets
+
+- `public/images/stills/` — 7 production stills from the film.
+- `public/images/crew/` — headshots; `placeholder.svg` is a stand-in for crew member Div Sangani, whose bio/headshot are still pending.
+- `public/images/laurels/` — festival selection laurels for the Screenings page.
+- `public/videos/hero-1.mp4` through `hero-4.mp4` — four clips trimmed from the production team's full-resolution ProRes "stringout" reel (not in this repo — it's ~1.9GB, lives in the director's Google Drive/Downloads). Only `hero-1` and `hero-2` are currently used on the site (see design rule above); `hero-3`/`hero-4` are cut but currently unused — ask before re-introducing them as new hero backgrounds.
+
+## Known open items / content gaps
+
+- Resend/domain (above).
+- Div Sangani's crew bio + headshot.
+- "Story Behind the Story" text on About page is placeholder copy — the real story text is pending from the filmmaker.
+- Real social media handles — Contact page and Footer currently link to a placeholder Instagram URL.
+- Dev server default port is `60468`, configured in `.claude/launch.json` with `autoPort: true` as fallback (port 3000 is often occupied by other projects' sessions on this machine).
