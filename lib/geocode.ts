@@ -10,7 +10,7 @@ export async function geocodeAddress(address: string): Promise<Coordinates | nul
 
   const res = await fetch(url, {
     headers: {
-      "User-Agent": "SuenosDeUnaMonarcaFilm/1.0 (contact: juliantrejo1@gmail.com)",
+      "User-Agent": "SuenosDeUnaMonarcaFilm/1.0 (contact: jtrejofilms@outlook.com)",
       "Accept-Language": "en",
     },
   });

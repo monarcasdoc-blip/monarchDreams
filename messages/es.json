@@ -12,7 +12,7 @@
   "Footer": {
     "tagline": "Un documental sobre el hogar, la familia, la libertad y la lucha por salvar a la mariposa monarca.",
     "explore": "Explorar",
-    "follow": "Síguenos",
+    "follow": "Contacto",
     "rights": "Todos los derechos reservados."
   },
   "Home": {
@@ -130,9 +130,8 @@
     "mapLink": "Ver el mapa"
   },
   "Contact": {
-    "title": "Contacto y Redes",
+    "title": "Contacto",
     "intro": "¿Tienes preguntas sobre la película, consultas de prensa, o solo quieres saludar? Escríbenos.",
-    "followHeading": "Síguenos",
     "formName": "Nombre",
     "formEmail": "Correo electrónico",
     "formMessage": "Mensaje",

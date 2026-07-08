@@ -6,9 +6,6 @@ export const metadata: Metadata = {
   title: "Contact | Sueños de una Monarca",
 };
 
-// TODO: swap in real social handles once available.
-const socials = [{ label: "Instagram", href: "https://instagram.com" }];
-
 export default async function Contact() {
   const t = await getTranslations("Contact");
 
@@ -17,27 +14,8 @@ export default async function Contact() {
       <h1 className="font-display text-3xl sm:text-4xl mb-3">{t("title")}</h1>
       <p className="text-monarch-black/70 mb-10">{t("intro")}</p>
 
-      <div className="rounded-xl border border-monarch-black/10 bg-white p-8 mb-8">
-        <ContactForm />
-      </div>
-
       <div className="rounded-xl border border-monarch-black/10 bg-white p-8">
-        <p className="text-sm uppercase tracking-wide text-milkweed-green mb-4">
-          {t("followHeading")}
-        </p>
-        <div className="flex justify-center gap-6">
-          {socials.map((s) => (
-            <a
-              key={s.label}
-              href={s.href}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-monarch-black font-medium hover:text-monarch-orange"
-            >
-              {s.label}
-            </a>
-          ))}
-        </div>
+        <ContactForm />
       </div>
     </div>
   );

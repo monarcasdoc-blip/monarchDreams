@@ -54,16 +54,6 @@ export default async function Footer() {
           <ul className="space-y-2">
             <li>
               <a
-                href="https://instagram.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="hover:text-monarch-orange"
-              >
-                Instagram
-              </a>
-            </li>
-            <li>
-              <a
                 href={`mailto:${hostAScreeningEmail}`}
                 className="hover:text-monarch-orange"
               >

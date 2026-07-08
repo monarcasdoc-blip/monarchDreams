@@ -12,7 +12,7 @@
   "Footer": {
     "tagline": "A documentary about home, family, freedom, and the fight to save the monarch butterfly.",
     "explore": "Explore",
-    "follow": "Follow",
+    "follow": "Contact",
     "rights": "All rights reserved."
   },
   "Home": {
@@ -130,9 +130,8 @@
     "mapLink": "View the map"
   },
   "Contact": {
-    "title": "Contact & Follow",
+    "title": "Contact",
     "intro": "Questions about the film, press inquiries, or just want to say hello? Reach out below.",
-    "followHeading": "Follow",
     "formName": "Name",
     "formEmail": "Email",
     "formMessage": "Message",

@@ -129,4 +129,4 @@ export const takeAction = {
   donateOrg: "Women for Green Spaces",
 };
 
-export const hostAScreeningEmail = "juliantrejo1@gmail.com";
+export const hostAScreeningEmail = "jtrejofilms@outlook.com";

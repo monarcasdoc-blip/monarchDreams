@@ -60,5 +60,4 @@ See `.env.example`. All four vars (`NEXT_PUBLIC_SUPABASE_URL`, `NEXT_PUBLIC_SUPA
 
 - Div Sangani's crew bio + headshot.
 - "Story Behind the Story" text on About page is placeholder copy — the real story text is pending from the filmmaker.
-- Real social media handles — Contact page and Footer currently link to a placeholder Instagram URL.
 - Dev server default port is `60468`, configured in `.claude/launch.json` with `autoPort: true` as fallback (port 3000 is often occupied by other projects' sessions on this machine).
