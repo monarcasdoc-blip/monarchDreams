@@ -10,7 +10,7 @@ Promotional/informational website for the documentary *Sueños de una Monarca* (
 
 **Repo**: `monarcasdoc-blip/monarchDreams` on GitHub, `main` branch. Local git pushes authenticate as GitHub user `kinoquizzes`, who is a collaborator on the repo (not the owner) — that's expected, not a misconfiguration.
 
-**Hosting**: Vercel (Hobby/free tier), auto-deploys on every push to `main`.
+**Hosting**: Vercel (Hobby/free tier), auto-deploys on every push to `main`. As of 2026-07-08, the Vercel project lives under the `monarcasdoc-blip` Vercel account (not `kinoquizzes`'s) and is connected to `monarcasdoc-blip/monarchDreams` directly — a prior misconfiguration had it connected to an unrelated `kinoquizzes/monarchdreams` repo, which silently ate every deploy trigger. If auto-deploys ever stop firing again, check Project Settings → Git on the `monarcasdoc-blip` account first.
 
 ## Pages (all under `app/[locale]/`, EN default / ES at `/es`)
 
