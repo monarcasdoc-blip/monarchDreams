@@ -1,0 +1,172 @@
+{
+  "Nav": {
+    "brand": "Sueños de una Monarca",
+    "home": "Inicio",
+    "about": "Sobre",
+    "screenings": "Proyecciones",
+    "hostAScreening": "Organiza una Proyección",
+    "takeAction": "Actúa",
+    "milkweedMap": "Mapa de Algodoncillo",
+    "contact": "Contacto"
+  },
+  "Footer": {
+    "tagline": "Un documental sobre el hogar, la familia, la libertad y la lucha por salvar a la mariposa monarca.",
+    "explore": "Explorar",
+    "follow": "Síguenos",
+    "rights": "Todos los derechos reservados."
+  },
+  "Home": {
+    "kicker": "Un Documental",
+    "subtitle": "Dreams of a Monarch",
+    "tagline": "Una planta, un jardín, una escuela a la vez — una misión para salvar a la mariposa monarca.",
+    "ctaAbout": "Sobre la Película",
+    "ctaScreening": "Buscar una Proyección",
+    "storyHeading": "La Historia",
+    "logline": "Después de transformar su casa en Chicago en un santuario para monarcas, Claudia Galeno-Sánchez, inmigrante mexicana, activista ambiental y madre, tiene la misión de salvar a la mariposa monarca, un símbolo vital para su familia y para millones de personas en toda Norteamérica.",
+    "readMore": "Lee la historia completa →",
+    "impactText": "plantas de algodoncillo sembradas hasta ahora, en todo Chicago como parte de este movimiento.",
+    "impactSubtext": "El cambio ocurre una planta, un jardín, una escuela a la vez. Así puedes ayudar a que siga creciendo.",
+    "impactCta": "Actúa",
+    "screeningsHeading": "Proyecciones",
+    "screeningsText": "Pronto habrá más proyecciones — vuelve para ver nuevas fechas, o trae la película a tu propia comunidad.",
+    "viewScreenings": "Ver Proyecciones →",
+    "hostScreeningLink": "Organiza una Proyección →"
+  },
+  "About": {
+    "title": "Sobre la Película",
+    "aboutParagraph1": "Claudia Galeno-Sánchez pasa el verano transformando su casa en Chicago en un santuario de mariposas y sembrando algodoncillo por toda la ciudad. Activista ambiental y miembro de la comunidad de Pilsen, el barrio mexicano de Chicago, tiene la misión de salvar a la mariposa monarca, una especie gravemente amenazada. Sueños de una Monarca acompaña el trabajo incansable de Galeno-Sánchez por salvar a la mariposa, símbolo del hogar, la familia y la libertad.",
+    "aboutParagraph2": "Como siempre dice Claudia, el cambio ocurrirá una planta, un jardín, una escuela a la vez. Ahora más que nunca, debemos sembrar nuestras semillas de impacto para salvar a esta hermosa especie, y hacer florecer este movimiento de conservación y comunidad en toda Norteamérica.",
+    "storyHeading": "La Historia Detrás de la Historia",
+    "storyText": "Sueños de una Monarca nació en un salón de clases de DePaul University durante mi último semestre como estudiante de cine documental. [Marcador de posición — la historia completa llegará pronto.]",
+    "crewHeading": "Conoce al Equipo",
+    "galleryHeading": "Galería"
+  },
+  "Crew": {
+    "julianTrejoBax": {
+      "role": "Periodista Visual",
+      "bio": "Julián Trejo Bax es un periodista visual mexicano-belga radicado en Chicago y Ciudad de México. Se especializa en historias en la intersección del cambio climático, la inmigración y los derechos humanos. Actualmente trabaja como periodista de video freelance para Associated Press, filmando y produciendo historias sobre el clima y el medio ambiente en México. Julián también colabora con organizaciones de base defensoras de los derechos humanos y el medio ambiente en México como cineasta documental. Inspirado por la migración transcontinental de la mariposa monarca, Julián se dedica a contar historias que conectan fronteras e inspiran a comunidades en toda Norteamérica."
+    },
+    "nataliaTrejoBax": {
+      "role": "Editora",
+      "bio": "Natalia Trejo Bax es Editora Asociada en FCB Chicago, donde edita comerciales para televisión y redes sociales. En el camino, ha tenido la oportunidad de trabajar en campañas para marcas como Clorox, Cottonelle, Poise y Kingsford. Fuera del mundo de las agencias, se enfoca en la edición y corrección de color de documentales. Algunos de los proyectos más cercanos a su corazón son cortometrajes documentales que destacan historias dentro de las comunidades hispanas de Chicago. Con raíces mexicanas y belgas, siempre se ha sentido atraída por distintas perspectivas y por la forma en que contar historias puede unir a las personas."
+    },
+    "alonsoVidal": {
+      "role": "Periodista Multimedia",
+      "bio": "Alonso Vidal es un periodista multimedia, documentalista, escritor y fotógrafo peruano que se enfoca en inmigración, identidad cultural, vivienda y justicia social, a menudo dando voz a comunidades subrepresentadas. Es becario Toni Stabile del Centro Toni Stabile de Periodismo de Investigación de la Universidad de Columbia, donde recientemente completó su maestría. Actualmente es becario de reportería para PBS FRONTLINE."
+    },
+    "dylanMartis": {
+      "role": "Animador",
+      "bio": "Dylan Martis es un cineasta que se especializa en combinar la pintura impresionista con la animación de personajes tradicional. Ha trabajado tanto para grandes estudios como en proyectos de cine independiente, y se esfuerza por crear una visión auténtica adaptada a cada proyecto."
+    },
+    "jackHoac": {
+      "role": "Diseñador Gráfico",
+      "bio": "Jack es un diseñador gráfico vietnamita radicado en Chicago, IL. Crea identidades de marca y sistemas visuales reflexivos que conectan la estrategia con la narrativa. Su práctica multidisciplinaria abarca branding, tipografía, motion e ilustración, creando experiencias expresivas tanto en espacios físicos como digitales."
+    },
+    "karinaRivero": {
+      "role": "Compositora",
+      "bio": "Karina es compositora, orquestadora y productora musical de la Ciudad de México. Ha trabajado como compositora para películas independientes en Norteamérica y Europa, y en la producción de álbumes orquestales, como Mi Ciudad, de la Orquesta Típica de la Ciudad de México, y Mitote, de la Orquesta Pasatono. Su música ha sido interpretada por diversas orquestas y ensambles, como el Vórtice Ensamble, la Stokłosa Collective Orchestra y la European Recording Orchestra. Es cofundadora de la Escuela Mexicana de Música para Cine y ha dado clases a nivel universitario en el Tecnológico de Monterrey. Ha recibido reconocimientos en concursos como el Young Talent Award (finalista, Cracovia, Polonia), Berlinale Talents (sede Latinoamérica) y el Score Live Composer Competition (segundo lugar, España)."
+    },
+    "zachScheitlin": {
+      "role": "Diseñador de Sonido",
+      "bio": "Zach Scheitlin es un diseñador de sonido especializado en crear audio inmersivo y narrativo para cine, medios y proyectos creativos. Con un fino oído para el detalle y la atmósfera, construye paisajes sonoros que realzan la emoción, el ritmo y el impacto narrativo. El trabajo de Zach combina precisión técnica con intuición creativa, acompañando historias que van desde el realismo sutil hasta el diseño audaz y expresivo."
+    },
+    "divSangani": {
+      "role": "Equipo",
+      "bio": "Biografía próximamente."
+    }
+  },
+  "Screenings": {
+    "title": "Proyecciones",
+    "intro": "¿Quieres traer Sueños de una Monarca a tu comunidad?",
+    "hostLink": "Organiza una proyección",
+    "upcomingHeading": "Próximas",
+    "comingSoon": "Pronto habrá más proyecciones…",
+    "pastHeading": "Anteriores"
+  },
+  "HostAScreening": {
+    "title": "Organiza una Proyección",
+    "intro": "Lleva Sueños de una Monarca a tu escuela, grupo comunitario u organización. Completa el siguiente formulario y te contactaremos con los detalles.",
+    "firstName": "Nombre",
+    "lastName": "Apellido",
+    "email": "Correo electrónico",
+    "hostingAs": "Organizas la proyección como",
+    "selectOne": "Selecciona una opción",
+    "optionIndividual": "Persona individual",
+    "optionSchool": "Escuela / Educador(a)",
+    "optionCommunity": "Organización comunitaria",
+    "optionFaith": "Grupo religioso",
+    "optionFestival": "Festival / Sala de cine",
+    "optionOther": "Otro",
+    "audienceSize": "Tamaño estimado del público",
+    "hostedBeforeQuestion": "¿Has organizado antes una proyección de Sueños de una Monarca?",
+    "yes": "Sí",
+    "no": "No",
+    "heardFrom": "¿Cómo te enteraste de la película?",
+    "comments": "Información adicional o comentarios",
+    "submit": "Enviar Solicitud",
+    "sending": "Enviando…",
+    "successTitle": "¡Gracias!",
+    "successText": "Tu solicitud ha sido enviada. Nos pondremos en contacto pronto sobre cómo organizar una proyección de Sueños de una Monarca.",
+    "genericError": "Algo salió mal."
+  },
+  "TakeAction": {
+    "title": "Actúa",
+    "introBeforeCount": "Claudia siempre dice: el cambio ocurrirá una planta, un jardín, una escuela a la vez. Juntos, ya hemos sembrado",
+    "introAfterCount": "plantas de algodoncillo. Así puedes ser parte de las próximas 200.",
+    "plantTitle": "Siembra Algodoncillo",
+    "plantDescription": "El algodoncillo es la única planta que comen las orugas de la mariposa monarca. Sembrar aunque sea un solo grupo de plantas en un jardín, patio escolar o huerto comunitario ayuda a reconstruir el corredor que las monarcas necesitan para migrar.",
+    "plantLink": "Encuentra algodoncillo nativo cerca de ti",
+    "donateTitle": "Dona",
+    "donateDescription": "Apoya el trabajo continuo de conservación y comunidad de Claudia Galeno-Sánchez a través de {org}.",
+    "donateLink": "Dona a través de {org}",
+    "hostTitle": "Organiza una Proyección",
+    "hostDescription": "Lleva la película a tu escuela, congregación u organización comunitaria e inicia una conversación sobre la conservación cerca de casa.",
+    "hostLink": "Organiza una proyección",
+    "spreadTitle": "Corre la Voz",
+    "spreadDescription": "Síguenos, comparte el tráiler y las fotos, y cuéntale a otros sobre el viaje de la monarca y lo que significa para el hogar, la familia y la libertad.",
+    "spreadLink": "Síguenos y conéctate",
+    "mapTitle": "Ve el Mapa de Algodoncillo",
+    "mapDescription": "Explora cada planta de algodoncillo sembrada por este movimiento hasta ahora, y añade la tuya al mapa.",
+    "mapLink": "Ver el mapa"
+  },
+  "Contact": {
+    "title": "Contacto y Redes",
+    "intro": "¿Tienes preguntas sobre la película, consultas de prensa, o solo quieres saludar? Escríbenos.",
+    "followHeading": "Síguenos",
+    "formName": "Nombre",
+    "formEmail": "Correo electrónico",
+    "formMessage": "Mensaje",
+    "formSubmit": "Enviar Mensaje",
+    "sending": "Enviando…",
+    "successTitle": "¡Gracias!",
+    "successText": "Tu mensaje ha sido enviado. Nos pondremos en contacto contigo pronto.",
+    "genericError": "Algo salió mal."
+  },
+  "MilkweedMap": {
+    "title": "Mapa de Algodoncillo",
+    "intro": "Cada punto es una planta de algodoncillo sembrada por alguien en este movimiento. Añade la tuya al mapa.",
+    "addButton": "Añade tu Algodoncillo",
+    "pinCount": "plantas de algodoncillo en el mapa",
+    "emptyState": "Todavía no hay algodoncillo en el mapa — ¡sé el primero en añadir el tuyo!",
+    "loadError": "El mapa no pudo cargar en este momento. Inténtalo de nuevo más tarde.",
+    "notConfigured": "El mapa de algodoncillo aún no está configurado."
+  },
+  "PlantMilkweed": {
+    "title": "Añade tu Algodoncillo al Mapa",
+    "intro": "¿Sembraste algodoncillo como parte de este movimiento? Comparte una foto y lo añadiremos al mapa una vez revisado.",
+    "displayName": "Nombre (opcional, se muestra públicamente)",
+    "email": "Correo electrónico",
+    "emailNote": "Solo se usa para contactarte sobre tu envío — nunca se muestra públicamente.",
+    "address": "Dirección",
+    "addressNote": "Solo se usa para ubicar un punto aproximado — tu dirección exacta nunca se muestra públicamente.",
+    "photo": "Foto de tu algodoncillo",
+    "consent": "Acepto que mi foto y ubicación aproximada se muestren públicamente en el mapa.",
+    "submit": "Enviar",
+    "sending": "Enviando…",
+    "successTitle": "¡Gracias!",
+    "successText": "¡Tu envío se recibió! Una vez revisado, tu algodoncillo aparecerá en el mapa.",
+    "genericError": "Algo salió mal.",
+    "uploadError": "No se pudo subir tu foto. Inténtalo de nuevo.",
+    "consentRequired": "Por favor confirma que aceptas antes de enviar."
+  }
+}

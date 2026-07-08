@@ -1,0 +1,172 @@
+{
+  "Nav": {
+    "brand": "Sueños de una Monarca",
+    "home": "Home",
+    "about": "About",
+    "screenings": "Screenings",
+    "hostAScreening": "Host a Screening",
+    "takeAction": "Take Action",
+    "milkweedMap": "Milkweed Map",
+    "contact": "Contact"
+  },
+  "Footer": {
+    "tagline": "A documentary about home, family, freedom, and the fight to save the monarch butterfly.",
+    "explore": "Explore",
+    "follow": "Follow",
+    "rights": "All rights reserved."
+  },
+  "Home": {
+    "kicker": "A Documentary Film",
+    "subtitle": "Dreams of a Monarch",
+    "tagline": "One plant, one garden, one school at a time — a mission to save the monarch butterfly.",
+    "ctaAbout": "About the Film",
+    "ctaScreening": "Find a Screening",
+    "storyHeading": "The Story",
+    "logline": "After transforming her Chicago home into a monarch sanctuary, Mexican immigrant, environmental activist and mother Claudia Galeno-Sánchez is on a mission to save the monarch butterfly — a vital symbol for her family and millions of others across North America.",
+    "readMore": "Read the full story →",
+    "impactText": "milkweed plants and counting, planted across Chicago as part of this movement.",
+    "impactSubtext": "Change happens one plant, one garden, one school at a time. Here's how you can help it grow.",
+    "impactCta": "Take Action",
+    "screeningsHeading": "Screenings",
+    "screeningsText": "More screenings coming soon — check back for upcoming dates, or bring the film to your own community.",
+    "viewScreenings": "View Screenings →",
+    "hostScreeningLink": "Host a Screening →"
+  },
+  "About": {
+    "title": "About the Film",
+    "aboutParagraph1": "Claudia Galeno-Sánchez spends the summer turning her Chicago home into a butterfly sanctuary and planting milkweed around the city. An environmental activist and community member in Pilsen, Chicago's Mexican neighborhood, she is on a mission to save the Monarch butterfly, a species heavily under threat. Sueños de una Monarca brings viewers alongside Galeno-Sánchez's relentless work to save the butterfly, which is a symbol of home, family and freedom.",
+    "aboutParagraph2": "As Claudia always says, change will happen one plant, one garden, one school at a time. Now more than ever, we must sow our seeds of impact to save this beautiful species, and blossom this movement of conservation and community across North America.",
+    "storyHeading": "The Story Behind the Story",
+    "storyText": "Sueños de una Monarca was born in a DePaul University classroom during my final semester as an undergraduate documentary film student. [Placeholder — full story coming soon.]",
+    "crewHeading": "Meet the Crew",
+    "galleryHeading": "Gallery"
+  },
+  "Crew": {
+    "julianTrejoBax": {
+      "role": "Visual Journalist",
+      "bio": "Julián Trejo Bax is a Mexican-Belgian visual journalist based in Chicago and Mexico City. He specializes in stories at the intersection of climate change, immigration and human rights. He currently works as a freelance video journalist for the Associated Press filming and producing climate and environment related stories in Mexico. Julián also partners with human rights and environment defending grassroots organizations in Mexico as a documentary filmmaker. Inspired by the monarch butterfly's transcontinental migration, Julián is dedicated to stories that bridge borders and inspire communities across North America."
+    },
+    "nataliaTrejoBax": {
+      "role": "Editor",
+      "bio": "Natalia Trejo Bax is an Associate Editor at FCB Chicago, where she cuts commercials for broadcast and social media. Along the way, she has had the chance to work on campaigns for brands like Clorox, Cottonelle, Poise, and Kingsford. Outside the agency world, she focuses on documentary editing and color grading. Some of the projects closest to her heart are short documentaries that highlight stories within Hispanic communities in Chicago. With a Mexican and Belgian background, she has always been drawn to different perspectives and the ways storytelling can bring people together."
+    },
+    "alonsoVidal": {
+      "role": "Multimedia Journalist",
+      "bio": "Alonso Vidal is a Peruvian multimedia journalist, documentalist, writer, and photographer who focuses on immigration, cultural identity, housing, and social justice, often spotlighting underrepresented communities. He is a Toni Stabile fellow at the Toni Stabile Center for Investigative Journalism at Columbia University, where he recently completed his master's degree. He is currently a reporting fellow for PBS FRONTLINE."
+    },
+    "dylanMartis": {
+      "role": "Animator",
+      "bio": "Dylan Martis is a filmmaker who specializes in marrying impressionistic painting and traditional character animation. He has worked for major studios as well as indie film projects, and strives to create an authentic vision tailored for each and every project."
+    },
+    "jackHoac": {
+      "role": "Graphic Designer",
+      "bio": "Jack is a Vietnamese graphic designer based in Chicago, IL. He creates thoughtful brand identities and visual systems that connect strategy with storytelling. His multidisciplinary practice spans branding, typography, motion, and illustration, crafting expressive experiences across both physical and digital spaces."
+    },
+    "karinaRivero": {
+      "role": "Composer",
+      "bio": "Karina is a composer, orchestrator and music producer from Mexico City. She has worked as a composer for independent films in North America and Europe, and in the production of orchestral albums, such as Mi Ciudad, from the Typical Orchestra of Mexico City and Mitote from Pasatono Orchestra. Her music has been performed by various orchestras and ensembles, such as the Vórtice Ensamble, the Stokłosa Collective Orchestra and the European Recording Orchestra. She's the co-founder of the Mexican School of Music for Film and has taught at college level at Tecnológico de Monterrey. She has received recognitions in contests such as the Young Talent Award (finalist, Krakow, Poland), Berlinale Talents (Latin America campus) and the Score Live Composer Competition (second runner-up, Spain)."
+    },
+    "zachScheitlin": {
+      "role": "Sound Designer",
+      "bio": "Zach Scheitlin is a sound designer specializing in creating immersive, story-driven audio for film, media, and creative projects. With a strong ear for detail and atmosphere, he crafts soundscapes that enhance emotion, rhythm, and narrative impact. Zach's work blends technical precision with creative intuition, supporting stories from subtle realism to bold, expressive design."
+    },
+    "divSangani": {
+      "role": "Crew",
+      "bio": "Bio coming soon."
+    }
+  },
+  "Screenings": {
+    "title": "Screenings",
+    "intro": "Want to bring Sueños de una Monarca to your community?",
+    "hostLink": "Host a screening",
+    "upcomingHeading": "Upcoming",
+    "comingSoon": "More screenings coming soon…",
+    "pastHeading": "Past"
+  },
+  "HostAScreening": {
+    "title": "Host a Screening",
+    "intro": "Bring Sueños de una Monarca to your school, community group, or organization. Fill out the form below and we'll follow up with details.",
+    "firstName": "First Name",
+    "lastName": "Last Name",
+    "email": "Email",
+    "hostingAs": "Host a screening as",
+    "selectOne": "Select one",
+    "optionIndividual": "Individual",
+    "optionSchool": "School / Educator",
+    "optionCommunity": "Community Organization",
+    "optionFaith": "Faith Group",
+    "optionFestival": "Festival / Theater",
+    "optionOther": "Other",
+    "audienceSize": "Estimated Audience Size",
+    "hostedBeforeQuestion": "Have you hosted a screening of Sueños de una Monarca before?",
+    "yes": "Yes",
+    "no": "No",
+    "heardFrom": "How did you hear about the film?",
+    "comments": "Any additional information or comments",
+    "submit": "Submit Request",
+    "sending": "Sending…",
+    "successTitle": "Thank you!",
+    "successText": "Your request has been sent. We'll be in touch soon about hosting a screening of Sueños de una Monarca.",
+    "genericError": "Something went wrong."
+  },
+  "TakeAction": {
+    "title": "Take Action",
+    "introBeforeCount": "Claudia always says: change will happen one plant, one garden, one school at a time. Together, we've already planted",
+    "introAfterCount": "milkweed plants. Here's how to be part of the next 200.",
+    "plantTitle": "Plant Milkweed",
+    "plantDescription": "Milkweed is the only plant monarch caterpillars eat. Planting even one patch in a yard, schoolyard, or community garden helps rebuild the corridor monarchs need to migrate.",
+    "plantLink": "Find native milkweed near you",
+    "donateTitle": "Donate",
+    "donateDescription": "Support Claudia Galeno-Sánchez's ongoing conservation and community work through {org}.",
+    "donateLink": "Donate via {org}",
+    "hostTitle": "Host a Screening",
+    "hostDescription": "Bring the film to your school, congregation, or community organization and start a conversation about conservation close to home.",
+    "hostLink": "Host a screening",
+    "spreadTitle": "Spread the Word",
+    "spreadDescription": "Follow along, share the trailer and stills, and tell others about the monarch's journey and what it means for home, family, and freedom.",
+    "spreadLink": "Follow & connect",
+    "mapTitle": "See the Milkweed Map",
+    "mapDescription": "Explore every milkweed planted by this movement so far, and add your own to the map.",
+    "mapLink": "View the map"
+  },
+  "Contact": {
+    "title": "Contact & Follow",
+    "intro": "Questions about the film, press inquiries, or just want to say hello? Reach out below.",
+    "followHeading": "Follow",
+    "formName": "Name",
+    "formEmail": "Email",
+    "formMessage": "Message",
+    "formSubmit": "Send Message",
+    "sending": "Sending…",
+    "successTitle": "Thank you!",
+    "successText": "Your message has been sent. We'll get back to you soon.",
+    "genericError": "Something went wrong."
+  },
+  "MilkweedMap": {
+    "title": "Milkweed Map",
+    "intro": "Every pin is milkweed planted by someone in this movement. Add yours to the map.",
+    "addButton": "Add Your Milkweed",
+    "pinCount": "milkweed plants on the map",
+    "emptyState": "No milkweed on the map yet — be the first to add yours!",
+    "loadError": "The map couldn't load right now. Please try again later.",
+    "notConfigured": "The milkweed map isn't set up yet."
+  },
+  "PlantMilkweed": {
+    "title": "Add Your Milkweed to the Map",
+    "intro": "Planted milkweed as part of this movement? Share a photo and we'll add it to the map once it's reviewed.",
+    "displayName": "Name (optional, shown publicly)",
+    "email": "Email",
+    "emailNote": "Only used to reach you about your submission — never shown publicly.",
+    "address": "Address",
+    "addressNote": "Only used to place an approximate pin — your exact address is never shown publicly.",
+    "photo": "Photo of your milkweed",
+    "consent": "I agree to have my photo and approximate location shown publicly on the map.",
+    "submit": "Submit",
+    "sending": "Sending…",
+    "successTitle": "Thank you!",
+    "successText": "Your submission is in! Once it's reviewed, your milkweed will appear on the map.",
+    "genericError": "Something went wrong.",
+    "uploadError": "Couldn't upload your photo. Please try again.",
+    "consentRequired": "Please confirm you agree before submitting."
+  }
+}

@@ -1,0 +1,60 @@
+import type { Metadata } from "next";
+import { getTranslations } from "next-intl/server";
+import { crew } from "@/data/content";
+import CrewCard from "@/components/CrewCard";
+import HeroVideo from "@/components/HeroVideo";
+
+export const metadata: Metadata = {
+  title: "About the Film | Sueños de una Monarca",
+};
+
+export default async function About() {
+  const t = await getTranslations("About");
+  const tCrew = await getTranslations("Crew");
+
+  return (
+    <div>
+      <section className="mx-auto max-w-3xl px-6 pt-16 pb-10">
+        <h1 className="font-display text-3xl sm:text-4xl mb-8 text-center">
+          {t("title")}
+        </h1>
+        <p className="text-lg leading-relaxed text-monarch-black/80 mb-5">
+          {t("aboutParagraph1")}
+        </p>
+        <p className="text-lg leading-relaxed text-monarch-black/80 mb-5">
+          {t("aboutParagraph2")}
+        </p>
+      </section>
+
+      <section className="relative py-16 text-cream overflow-hidden">
+        <HeroVideo src="/videos/hero-2.mp4" />
+        <div className="relative mx-auto max-w-3xl px-6">
+          <h2 className="font-display text-2xl sm:text-3xl mb-5 text-monarch-orange">
+            {t("storyHeading")}
+          </h2>
+          <p className="text-lg leading-relaxed text-cream/85">
+            {t("storyText")}
+          </p>
+        </div>
+      </section>
+
+      <section className="mx-auto max-w-6xl px-6 py-16">
+        <h2 className="font-display text-2xl sm:text-3xl mb-10 text-center">
+          {t("crewHeading")}
+        </h2>
+        <div className="grid gap-12 sm:grid-cols-2 lg:grid-cols-4">
+          {crew.map((member) => (
+            <CrewCard
+              key={member.slug}
+              name={member.name}
+              headshot={member.headshot}
+              objectPosition={member.headshotPosition}
+              role={tCrew(`${member.slug}.role`)}
+              bio={tCrew(`${member.slug}.bio`)}
+            />
+          ))}
+        </div>
+      </section>
+    </div>
+  );
+}

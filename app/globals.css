@@ -2,25 +2,31 @@
 
 :root {
   --background: #ffffff;
-  --foreground: #171717;
+  --foreground: #1a1a1a;
+
+  --color-monarch-orange: #e2690f;
+  --color-monarch-orange-dark: #b8500a;
+  --color-monarch-black: #1a1a1a;
+  --color-milkweed-green: #4a7c3f;
+  --color-milkweed-green-dark: #375c2e;
+  --color-cream: #fdfaf5;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --color-monarch-orange: var(--color-monarch-orange);
+  --color-monarch-orange-dark: var(--color-monarch-orange-dark);
+  --color-monarch-black: var(--color-monarch-black);
+  --color-milkweed-green: var(--color-milkweed-green);
+  --color-milkweed-green-dark: var(--color-milkweed-green-dark);
+  --color-cream: var(--color-cream);
+  --font-sans: var(--font-sans);
+  --font-display: var(--font-display);
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans), Arial, Helvetica, sans-serif;
 }
