@@ -125,7 +125,7 @@ export const impact = {
 };
 
 export const takeAction = {
-  donateUrl: "https://www.womenforgreenspaces.org/support",
+  donateUrl: "https://www.workingfamilysolidarity.org/donate",
   donateOrg: "Women for Green Spaces",
 };
 

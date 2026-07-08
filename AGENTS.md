@@ -14,9 +14,9 @@ Promotional/informational website for the documentary *Sueños de una Monarca* (
 
 ## Pages (all under `app/[locale]/`, EN default / ES at `/es`)
 
-- **Home** (`page.tsx`) — full-bleed looping background video (`/videos/hero-1.mp4`: monarch colony → Claudia holding one), hero text, synopsis, milkweed impact stat, screenings teaser.
+- **Home** (`page.tsx`) — full-bleed background video hero that cycles `hero-1.mp4` → `hero-3.mp4` (Claudia at the butterfly mural, cropped `objectPosition: "center top"`) → `hero-4.mp4`, each playing once before advancing, then hero text, synopsis, milkweed impact stat, screenings teaser.
 - **About** (`about/`) — synopsis, "Story Behind the Story" section (background is `/videos/hero-2.mp4`, Dylan's animated illustration — this is an intentional exception to the "stills only on interior pages" rule below), crew grid. No gallery section (removed per request).
-- **Screenings** (`screenings/`) — hero banner uses still photo `stills[1]` (still-2.png). Upcoming/past screening lists.
+- **Screenings** (`screenings/`) — no hero image; plain centered title matching the Milkweed Map/Host a Screening pattern. Upcoming/past screening lists.
 - **Host a Screening** (`host-a-screening/`) — form, emails via Resend.
 - **Take Action** (`take-action/`) — hero banner uses still photo `stills[6]` (still-7.jpg, the mural photo), cropped via `objectPosition="center 5%"` to keep the raised arm/mural visible. Action cards including a link to Milkweed Map.
 - **Milkweed Map** (`milkweed-map/` + `milkweed-map/submit/`) — see below.
@@ -43,22 +43,21 @@ Schema + RLS policies + storage bucket setup SQL: `supabase/schema.sql` (already
 
 ## Email (Resend)
 
-`app/api/host-a-screening/route.ts`, `app/api/contact/route.ts`, and the Plant Milkweed flow (Supabase, not email) all follow the same pattern: validate → return a graceful "not configured" error if `RESEND_API_KEY` is unset. **Resend is not yet configured** — blocked on the user purchasing a domain (they have the API key ready). Once a domain exists: add `RESEND_API_KEY` and `RESEND_FROM_EMAIL` to `.env.local` (see `.env.example`) and to Vercel's project env vars, verify the domain in Resend's dashboard, then test both forms end-to-end.
+`app/api/host-a-screening/route.ts`, `app/api/contact/route.ts`, and the Plant Milkweed flow (Supabase, not email) all follow the same pattern: validate → return a graceful "not configured" error if `RESEND_API_KEY` is unset. **Resend is fully configured as of 2026-07-08.** Site domain is `dreamsofamonarch.com` (verified in Resend's dashboard); sender is `noreply@dreamsofamonarch.com` (`RESEND_FROM_EMAIL`); both forms deliver to `juliantrejo1@gmail.com`. Both forms were tested end-to-end (submitted locally, confirmed `200` responses from Resend, success UI shown).
 
 ## Environment variables
 
-See `.env.example`. `NEXT_PUBLIC_SUPABASE_URL` and `NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY` are already set in `.env.local` (gitignored) and need to be added to Vercel's project settings too if not already done. The Supabase publishable key is meant to be public/client-exposed — safe to share.
+See `.env.example`. All four vars (`NEXT_PUBLIC_SUPABASE_URL`, `NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY`, `RESEND_API_KEY`, `RESEND_FROM_EMAIL`) are set in both `.env.local` (gitignored) and Vercel's project settings. The Supabase publishable key is meant to be public/client-exposed — safe to share.
 
 ## Assets
 
 - `public/images/stills/` — 7 production stills from the film.
 - `public/images/crew/` — headshots; `placeholder.svg` is a stand-in for crew member Div Sangani, whose bio/headshot are still pending.
 - `public/images/laurels/` — festival selection laurels for the Screenings page.
-- `public/videos/hero-1.mp4` through `hero-4.mp4` — four clips trimmed from the production team's full-resolution ProRes "stringout" reel (not in this repo — it's ~1.9GB, lives in the director's Google Drive/Downloads). Only `hero-1` and `hero-2` are currently used on the site (see design rule above); `hero-3`/`hero-4` are cut but currently unused — ask before re-introducing them as new hero backgrounds.
+- `public/videos/hero-1.mp4` through `hero-4.mp4` — four clips trimmed from the production team's full-resolution ProRes "stringout" reel (not in this repo — it's ~1.9GB, lives in the director's Google Drive/Downloads). The Home hero cycles through `hero-1`, `hero-3`, `hero-4` (each plays once, then advances) via `HeroVideo`, which now accepts either a single `src` string or an array to cycle. `hero-2` remains reserved for the About page's "Story Behind the Story" section only — ask before mixing it into the Home cycle.
 
 ## Known open items / content gaps
 
-- Resend/domain (above).
 - Div Sangani's crew bio + headshot.
 - "Story Behind the Story" text on About page is placeholder copy — the real story text is pending from the filmmaker.
 - Real social media handles — Contact page and Footer currently link to a placeholder Instagram URL.
