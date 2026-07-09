@@ -72,16 +72,15 @@ export const crew: CrewMember[] = [
     headshot: "/images/crew/julian-trejo-bax.png",
   },
   {
+    slug: "claudia",
+    name: "Claudia Galeno-Sánchez",
+    headshot: "/images/crew/claudia-galeno-sanchez.jpeg",
+  },
+  {
     slug: "nataliaTrejoBax",
     name: "Natalia Trejo Bax",
     headshot: "/images/crew/natalia-trejo-bax.webp",
     headshotPosition: "50% 22%",
-  },
-  // TODO: real headshot pending for Claudia; using placeholder for now.
-  {
-    slug: "claudia",
-    name: "Claudia Galeno-Sánchez",
-    headshot: "/images/crew/placeholder.svg",
   },
   {
     slug: "alonsoVidal",
