@@ -9,12 +9,16 @@ create table if not exists milkweed_submissions (
   display_name text,
   email text not null,
   address text not null,
+  plant_name text,
   lat double precision,
   lng double precision,
   photo_url text not null,
   status text not null default 'pending' check (status in ('pending', 'approved', 'rejected')),
   admin_notes text
 );
+
+-- Already ran schema.sql before and just need the new column? Run this alone:
+-- alter table milkweed_submissions add column if not exists plant_name text;
 
 alter table milkweed_submissions enable row level security;
 
@@ -31,7 +35,7 @@ create policy "Public can submit milkweed" on milkweed_submissions
 -- Public-safe view: only approved rows, only non-private columns.
 -- This is what the map page reads from.
 create or replace view public_milkweed_pins as
-  select id, display_name, lat, lng, photo_url, created_at
+  select id, display_name, lat, lng, photo_url, created_at, plant_name
   from milkweed_submissions
   where status = 'approved';
 

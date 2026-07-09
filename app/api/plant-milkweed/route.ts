@@ -6,6 +6,7 @@ type Payload = {
   displayName?: string;
   email: string;
   address: string;
+  plantName?: string;
   photoUrl: string;
 };
 
@@ -43,6 +44,7 @@ export async function POST(request: Request) {
     display_name: body.displayName || null,
     email: body.email,
     address: body.address,
+    plant_name: body.plantName || null,
     lat: jittered.lat,
     lng: jittered.lng,
     photo_url: body.photoUrl,

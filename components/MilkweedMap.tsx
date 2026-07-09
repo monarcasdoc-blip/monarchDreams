@@ -41,6 +41,9 @@ export default function MilkweedMap({ pins }: { pins: MilkweedPin[] }) {
                 alt={pin.display_name ?? "Milkweed"}
                 className="w-32 h-32 object-cover rounded-md mx-auto mb-2"
               />
+              {pin.plant_name && (
+                <p className="font-display text-sm text-monarch-orange">{pin.plant_name}</p>
+              )}
               {pin.display_name && (
                 <p className="font-medium text-sm">{pin.display_name}</p>
               )}

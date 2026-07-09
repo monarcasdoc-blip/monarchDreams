@@ -68,6 +68,7 @@ export default function PlantMilkweedForm() {
           displayName: data.get("displayName"),
           email: data.get("email"),
           address: data.get("address"),
+          plantName: data.get("plantName"),
           photoUrl: publicUrl,
         }),
       });
@@ -113,6 +114,11 @@ export default function PlantMilkweedForm() {
         <label className={labelClass} htmlFor="address">{t("address")} *</label>
         <input className={inputClass} id="address" name="address" required />
         <p className="text-xs text-monarch-black/50 mt-1">{t("addressNote")}</p>
+      </div>
+
+      <div>
+        <label className={labelClass} htmlFor="plantName">{t("plantName")}</label>
+        <input className={inputClass} id="plantName" name="plantName" />
       </div>
 
       <div>

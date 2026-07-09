@@ -77,6 +77,12 @@ export const crew: CrewMember[] = [
     headshot: "/images/crew/natalia-trejo-bax.webp",
     headshotPosition: "50% 22%",
   },
+  // TODO: real headshot pending for Claudia; using placeholder for now.
+  {
+    slug: "claudia",
+    name: "Claudia Galeno-Sánchez",
+    headshot: "/images/crew/placeholder.svg",
+  },
   {
     slug: "alonsoVidal",
     name: "Alonso Vidal",
@@ -104,8 +110,14 @@ export const crew: CrewMember[] = [
   },
   // TODO: bio + headshot pending for this crew member.
   {
-    slug: "divSangani",
-    name: "Div Sangani",
+    slug: "divyeshSangani",
+    name: "Divyesh Sangani",
+    headshot: "/images/crew/placeholder.svg",
+  },
+  // TODO: real headshot pending for Thomas; using placeholder for now.
+  {
+    slug: "thomasMcDonnell",
+    name: "Thomas McDonnell",
     headshot: "/images/crew/placeholder.svg",
   },
 ];

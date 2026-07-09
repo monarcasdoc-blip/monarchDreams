@@ -14,8 +14,8 @@ Promotional/informational website for the documentary *Sueños de una Monarca* (
 
 ## Pages (all under `app/[locale]/`, EN default / ES at `/es`)
 
-- **Home** (`page.tsx`) — full-bleed background video hero that cycles `hero-1.mp4` → `hero-3.mp4` (Claudia at the butterfly mural, cropped `objectPosition: "center top"`) → `hero-4.mp4`, each playing once before advancing, then hero text, synopsis, milkweed impact stat, screenings teaser.
-- **About** (`about/`) — synopsis, "Story Behind the Story" section (background is `/videos/hero-2.mp4`, Dylan's animated illustration — this is an intentional exception to the "stills only on interior pages" rule below), crew grid. No gallery section (removed per request).
+- **Home** (`page.tsx`) — full-bleed background video hero that cycles `hero-1-claudia.mp4` → `hero-1-swarm.mp4` → `hero-3.mp4` (cropped `objectPosition: "center top"`) → `hero-4.mp4`, each playing once before advancing, then hero text, synopsis, milkweed impact stat, screenings teaser. `hero-1.mp4` was split into two clips (`hero-1-claudia.mp4`/`hero-1-swarm.mp4`, cut at ~9.65s) so the cycle opens on Claudia holding a monarch rather than the swarm footage that used to lead. `HeroVideo` now stacks all clips as preloaded, always-mounted `<video>` elements and crossfades opacity between them (instead of swapping one element's `src`/key) — that's what eliminates the black flash that used to appear on every clip change; don't revert to the swap-on-`onEnded` pattern.
+- **About** (`about/`) — synopsis (with "Women for Green Spaces" hyperlinked to `womenforgreenspaces.org` via `t.rich` + a `<womenLink>` tag in the messages files — same pattern to reuse for any future inline links in translated copy), "Story Behind the Story" section (background is `/videos/hero-2.mp4`, Dylan's animated illustration — this is an intentional exception to the "stills only on interior pages" rule below), "Meet the Team" crew grid. No gallery section (removed per request).
 - **Screenings** (`screenings/`) — no hero image; plain centered title matching the Milkweed Map/Host a Screening pattern. Upcoming/past screening lists.
 - **Host a Screening** (`host-a-screening/`) — form, emails via Resend.
 - **Take Action** (`take-action/`) — hero banner uses still photo `stills[6]` (still-7.jpg, the mural photo), cropped via `objectPosition="center 5%"` to keep the raised arm/mural visible. Action cards including a link to Milkweed Map.
@@ -39,6 +39,8 @@ Flow: submitter fills out `/milkweed-map/submit` (`PlantMilkweedForm.tsx`) → p
 
 Schema + RLS policies + storage bucket setup SQL: `supabase/schema.sql` (already run against the live Supabase project). Supabase client: `lib/supabase/client.ts`, exports `null` if env vars are missing so callers must handle the not-configured case explicitly.
 
+The submission form also collects an optional `plant_name` ("Name your plant :)"), stored on `milkweed_submissions` and surfaced in the map popup above the submitter's display name. **Action needed**: since `schema.sql` was already run once against the live project, the new `plant_name` column and the updated `public_milkweed_pins` view definition still need to be applied — run `alter table milkweed_submissions add column if not exists plant_name text;` and re-run the `create or replace view public_milkweed_pins ...` statement (both in `supabase/schema.sql`) in the Supabase SQL editor.
+
 **Known cleanup needed**: two test rows (`test@example.com`, `deploycheck@example.com`) are sitting in the `milkweed_submissions` table from development testing — delete them via the Supabase dashboard before real moderation begins.
 
 ## Email (Resend)
@@ -52,12 +54,12 @@ See `.env.example`. All four vars (`NEXT_PUBLIC_SUPABASE_URL`, `NEXT_PUBLIC_SUPA
 ## Assets
 
 - `public/images/stills/` — 7 production stills from the film.
-- `public/images/crew/` — headshots; `placeholder.svg` is a stand-in for crew member Div Sangani, whose bio/headshot are still pending.
+- `public/images/crew/` — headshots; `placeholder.svg` is a stand-in for crew members whose photo is still pending: Divyesh Sangani, Claudia Galeno-Sánchez, and Thomas McDonnell.
 - `public/images/laurels/` — festival selection laurels for the Screenings page.
-- `public/videos/hero-1.mp4` through `hero-4.mp4` — four clips trimmed from the production team's full-resolution ProRes "stringout" reel (not in this repo — it's ~1.9GB, lives in the director's Google Drive/Downloads). The Home hero cycles through `hero-1`, `hero-3`, `hero-4` (each plays once, then advances) via `HeroVideo`, which now accepts either a single `src` string or an array to cycle. `hero-2` remains reserved for the About page's "Story Behind the Story" section only — ask before mixing it into the Home cycle.
+- `public/videos/` — `hero-1.mp4` (the original, unsplit clip — kept but no longer referenced by any page), `hero-1-claudia.mp4`/`hero-1-swarm.mp4` (split from `hero-1.mp4` at ~9.65s), `hero-2.mp4` through `hero-4.mp4`, all trimmed from the production team's full-resolution ProRes "stringout" reel (not in this repo — it's ~1.9GB, lives in the director's Google Drive/Downloads). `hero-2` remains reserved for the About page's "Story Behind the Story" section only — ask before mixing it into the Home cycle.
 
 ## Known open items / content gaps
 
-- Div Sangani's crew bio + headshot.
+- Divyesh Sangani's, Claudia's, and Thomas McDonnell's crew bios + headshots.
 - "Story Behind the Story" text on About page is placeholder copy — the real story text is pending from the filmmaker.
 - Dev server default port is `60468`, configured in `.claude/launch.json` with `autoPort: true` as fallback (port 3000 is often occupied by other projects' sessions on this machine).

@@ -19,7 +19,18 @@ export default async function About() {
           {t("title")}
         </h1>
         <p className="text-lg leading-relaxed text-monarch-black/80 mb-5">
-          {t("aboutParagraph1")}
+          {t.rich("aboutParagraph1", {
+            womenLink: (chunks) => (
+              <a
+                href="https://www.womenforgreenspaces.org"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-monarch-orange hover:text-monarch-orange-dark underline"
+              >
+                {chunks}
+              </a>
+            ),
+          })}
         </p>
         <p className="text-lg leading-relaxed text-monarch-black/80 mb-5">
           {t("aboutParagraph2")}

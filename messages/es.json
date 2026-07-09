@@ -34,7 +34,7 @@
   },
   "About": {
     "title": "Sobre la Película",
-    "aboutParagraph1": "Claudia Galeno-Sánchez pasa el verano transformando su casa en Chicago en un santuario de mariposas y sembrando algodoncillo por toda la ciudad. Activista ambiental y miembro de la comunidad de Pilsen, el barrio mexicano de Chicago, tiene la misión de salvar a la mariposa monarca, una especie gravemente amenazada. Es Fundadora y Directora Ejecutiva de Women for Green Spaces. Sueños de una Monarca acompaña el trabajo incansable de Galeno-Sánchez por salvar a la mariposa, símbolo del hogar, la familia y la libertad.",
+    "aboutParagraph1": "Claudia Galeno-Sánchez pasa el verano transformando su casa en Chicago en un santuario de mariposas y sembrando algodoncillo por toda la ciudad. Activista ambiental y miembro de la comunidad de Pilsen, el barrio mexicano de Chicago, tiene la misión de salvar a la mariposa monarca, una especie gravemente amenazada. Es Fundadora y Directora Ejecutiva de <womenLink>Women for Green Spaces</womenLink>. Sueños de una Monarca acompaña el trabajo incansable de Galeno-Sánchez por salvar a la mariposa, símbolo del hogar, la familia y la libertad.",
     "aboutParagraph2": "Como siempre dice Claudia, el cambio ocurrirá una planta, un jardín, una escuela a la vez. Ahora más que nunca, debemos sembrar nuestras semillas de impacto para salvar a esta hermosa especie, y hacer florecer este movimiento de conservación y comunidad en toda Norteamérica.",
     "storyHeading": "La Historia Detrás de la Historia",
     "storyText": "Sueños de una Monarca nació en un salón de clases de DePaul University durante mi último semestre como estudiante de cine documental. [Marcador de posición — la historia completa llegará pronto.]",
@@ -43,15 +43,19 @@
   },
   "Crew": {
     "julianTrejoBax": {
-      "role": "Periodista Visual",
+      "role": "Director/Director de Fotografía",
       "bio": "Julián Trejo Bax es un periodista visual mexicano-belga radicado en Chicago y Ciudad de México. Se especializa en historias en la intersección del cambio climático, la inmigración y los derechos humanos. Actualmente trabaja como periodista de video freelance para Associated Press, filmando y produciendo historias sobre el clima y el medio ambiente en México. Julián también colabora con organizaciones de base defensoras de los derechos humanos y el medio ambiente en México como cineasta documental. Inspirado por la migración transcontinental de la mariposa monarca, Julián se dedica a contar historias que conectan fronteras e inspiran a comunidades en toda Norteamérica."
     },
     "nataliaTrejoBax": {
-      "role": "Editora",
+      "role": "Editora/Colorista",
       "bio": "Natalia Trejo Bax es Editora Asociada en FCB Chicago, donde edita comerciales para televisión y redes sociales. En el camino, ha tenido la oportunidad de trabajar en campañas para marcas como Clorox, Cottonelle, Poise y Kingsford. Fuera del mundo de las agencias, se enfoca en la edición y corrección de color de documentales. Algunos de los proyectos más cercanos a su corazón son cortometrajes documentales que destacan historias dentro de las comunidades hispanas de Chicago. Con raíces mexicanas y belgas, siempre se ha sentido atraída por distintas perspectivas y por la forma en que contar historias puede unir a las personas."
     },
+    "claudia": {
+      "role": "Protagonista",
+      "bio": "Biografía próximamente."
+    },
     "alonsoVidal": {
-      "role": "Periodista Multimedia",
+      "role": "Director de Fotografía",
       "bio": "Alonso Vidal es un periodista multimedia, documentalista, escritor y fotógrafo peruano que se enfoca en inmigración, identidad cultural, vivienda y justicia social, a menudo dando voz a comunidades subrepresentadas. Es becario Toni Stabile del Centro Toni Stabile de Periodismo de Investigación de la Universidad de Columbia, donde recientemente completó su maestría. Actualmente es becario de reportería para PBS FRONTLINE."
     },
     "dylanMartis": {
@@ -59,19 +63,23 @@
       "bio": "Dylan Martis es un cineasta que se especializa en combinar la pintura impresionista con la animación de personajes tradicional. Ha trabajado tanto para grandes estudios como en proyectos de cine independiente, y se esfuerza por crear una visión auténtica adaptada a cada proyecto."
     },
     "jackHoac": {
-      "role": "Diseñador Gráfico",
+      "role": "Gráficos",
       "bio": "Jack es un diseñador gráfico vietnamita radicado en Chicago, IL. Crea identidades de marca y sistemas visuales reflexivos que conectan la estrategia con la narrativa. Su práctica multidisciplinaria abarca branding, tipografía, motion e ilustración, creando experiencias expresivas tanto en espacios físicos como digitales."
     },
     "karinaRivero": {
-      "role": "Compositora",
+      "role": "Compositora de Banda Sonora",
       "bio": "Karina es compositora, orquestadora y productora musical de la Ciudad de México. Ha trabajado como compositora para películas independientes en Norteamérica y Europa, y en la producción de álbumes orquestales, como Mi Ciudad, de la Orquesta Típica de la Ciudad de México, y Mitote, de la Orquesta Pasatono. Su música ha sido interpretada por diversas orquestas y ensambles, como el Vórtice Ensamble, la Stokłosa Collective Orchestra y la European Recording Orchestra. Es cofundadora de la Escuela Mexicana de Música para Cine y ha dado clases a nivel universitario en el Tecnológico de Monterrey. Ha recibido reconocimientos en concursos como el Young Talent Award (finalista, Cracovia, Polonia), Berlinale Talents (sede Latinoamérica) y el Score Live Composer Competition (segundo lugar, España)."
     },
     "zachScheitlin": {
-      "role": "Diseñador de Sonido",
+      "role": "Diseñador de Sonido/Mezcla",
       "bio": "Zach Scheitlin es un diseñador de sonido especializado en crear audio inmersivo y narrativo para cine, medios y proyectos creativos. Con un fino oído para el detalle y la atmósfera, construye paisajes sonoros que realzan la emoción, el ritmo y el impacto narrativo. El trabajo de Zach combina precisión técnica con intuición creativa, acompañando historias que van desde el realismo sutil hasta el diseño audaz y expresivo."
     },
-    "divSangani": {
-      "role": "Equipo",
+    "divyeshSangani": {
+      "role": "Animador",
+      "bio": "Biografía próximamente."
+    },
+    "thomasMcDonnell": {
+      "role": "Dibujante",
       "bio": "Biografía próximamente."
     }
   },
@@ -152,18 +160,19 @@
   },
   "PlantMilkweed": {
     "title": "Añade tu Algodoncillo al Mapa",
-    "intro": "¿Sembraste algodoncillo como parte de este movimiento? Comparte una foto y lo añadiremos al mapa una vez revisado.",
+    "intro": "¿Sembraste algodoncillo como parte de este movimiento? Comparte una foto y lo añadiremos al mapa.",
     "displayName": "Nombre (opcional, se muestra públicamente)",
     "email": "Correo electrónico",
     "emailNote": "Solo se usa para contactarte sobre tu envío — nunca se muestra públicamente.",
     "address": "Dirección",
     "addressNote": "Solo se usa para ubicar un punto aproximado — tu dirección exacta nunca se muestra públicamente.",
+    "plantName": "Ponle un nombre a tu planta :)",
     "photo": "Foto de tu algodoncillo",
     "consent": "Acepto que mi foto y ubicación aproximada se muestren públicamente en el mapa.",
     "submit": "Enviar",
     "sending": "Enviando…",
     "successTitle": "¡Gracias!",
-    "successText": "¡Tu envío se recibió! Una vez revisado, tu algodoncillo aparecerá en el mapa.",
+    "successText": "¡Tu envío se recibió! Tu algodoncillo aparecerá en el mapa pronto.",
     "genericError": "Algo salió mal.",
     "uploadError": "No se pudo subir tu foto. Inténtalo de nuevo.",
     "consentRequired": "Por favor confirma que aceptas antes de enviar."

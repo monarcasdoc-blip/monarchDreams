@@ -11,7 +11,8 @@ export default async function Home() {
       <section className="relative h-[80vh] min-h-[480px] w-full">
         <HeroVideo
           src={[
-            "/videos/hero-1.mp4",
+            "/videos/hero-1-claudia.mp4",
+            "/videos/hero-1-swarm.mp4",
             { src: "/videos/hero-3.mp4", objectPosition: "center top" },
             "/videos/hero-4.mp4",
           ]}

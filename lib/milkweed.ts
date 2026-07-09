@@ -3,6 +3,7 @@ import { supabase } from "@/lib/supabase/client";
 export type MilkweedPin = {
   id: string;
   display_name: string | null;
+  plant_name: string | null;
   lat: number;
   lng: number;
   photo_url: string;
