@@ -9,7 +9,7 @@ export default async function Home() {
   return (
     <div>
       <section className="relative h-[80vh] min-h-[480px] w-full">
-        <HeroVideo src="/videos/hero-home.mp4" />
+        <HeroVideo src="/videos/hero-home-v2.mp4" />
         <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-6">
           <p className="text-cream/80 uppercase tracking-[0.3em] text-xs sm:text-sm mb-4">
             {t("kicker")}
