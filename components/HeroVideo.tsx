@@ -10,6 +10,8 @@ function resolveClip(clip: Clip, fallbackPosition: string) {
     : { src: clip.src, objectPosition: clip.objectPosition ?? fallbackPosition };
 }
 
+const FADE_MS = 700;
+
 export default function HeroVideo({
   src,
   objectPosition = "center",
@@ -18,9 +20,12 @@ export default function HeroVideo({
   objectPosition?: string;
 }) {
   const clips = Array.isArray(src) ? src : [src];
-  const [index, setIndex] = useState(0);
+  const length = clips.length;
+  const [activeSlot, setActiveSlot] = useState(0);
+  // Which clip index each of the two slots is currently displaying.
+  const [slotClipIndex, setSlotClipIndex] = useState<[number, number]>([0, 1 % Math.max(length, 1)]);
   const slotRefs = [useRef<HTMLVideoElement | null>(null), useRef<HTMLVideoElement | null>(null)];
-  const activeSlot = index % 2;
+  const swapTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   useEffect(() => {
     const activeVideo = slotRefs[activeSlot].current;
@@ -40,9 +45,34 @@ export default function HeroVideo({
     document.addEventListener("visibilitychange", resumeIfVisible);
     return () => document.removeEventListener("visibilitychange", resumeIfVisible);
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [index]);
+  }, [activeSlot]);
 
-  if (clips.length === 1) {
+  useEffect(() => {
+    return () => {
+      if (swapTimeoutRef.current) clearTimeout(swapTimeoutRef.current);
+    };
+  }, []);
+
+  function handleEnded() {
+    const finishedSlot = activeSlot;
+    const nextSlot = finishedSlot === 0 ? 1 : 0;
+    // The other slot is already preloaded with the next clip — just reveal it.
+    setActiveSlot(nextSlot);
+    // Only AFTER the crossfade finishes do we repoint the now-hidden slot at
+    // the clip after next. Swapping its src any earlier — while it's still
+    // fading out and partially visible — is what caused the wrong clip to
+    // flash through on every transition.
+    if (swapTimeoutRef.current) clearTimeout(swapTimeoutRef.current);
+    swapTimeoutRef.current = setTimeout(() => {
+      setSlotClipIndex((prev) => {
+        const updated: [number, number] = [...prev];
+        updated[finishedSlot] = (prev[nextSlot] + 1) % length;
+        return updated;
+      });
+    }, FADE_MS);
+  }
+
+  if (length === 1) {
     const clip = resolveClip(clips[0], objectPosition);
     return (
       <div className="absolute inset-0">
@@ -64,16 +94,7 @@ export default function HeroVideo({
     <div className="absolute inset-0">
       {[0, 1].map((slot) => {
         const isActive = slot === activeSlot;
-        // Only two <video> elements ever exist. The active one always shows
-        // clips[index]; the other sits hidden and preloads clips[index + 1] —
-        // whatever it's already showing when it next becomes active. Its src
-        // only ever changes while it's hidden (opacity 0), so the visible
-        // element's source never changes underneath the viewer, and onEnded
-        // only lives on the active slot so a hidden/finished clip can never
-        // spuriously advance the cycle. That combination is what avoids any
-        // flash — of black or of the wrong clip — between transitions.
-        const clipIndex = isActive ? index : (index + 1) % clips.length;
-        const clip = resolveClip(clips[clipIndex], objectPosition);
+        const clip = resolveClip(clips[slotClipIndex[slot]], objectPosition);
 
         return (
           <video
@@ -83,9 +104,13 @@ export default function HeroVideo({
             muted
             playsInline
             preload="auto"
-            onEnded={isActive ? () => setIndex((prev) => (prev + 1) % clips.length) : undefined}
-            className="absolute inset-0 h-full w-full object-cover transition-opacity duration-700 ease-in-out"
-            style={{ objectPosition: clip.objectPosition, opacity: isActive ? 1 : 0 }}
+            onEnded={isActive ? handleEnded : undefined}
+            className="absolute inset-0 h-full w-full object-cover transition-opacity ease-in-out"
+            style={{
+              objectPosition: clip.objectPosition,
+              opacity: isActive ? 1 : 0,
+              transitionDuration: `${FADE_MS}ms`,
+            }}
           />
         );
       })}
