@@ -47,7 +47,7 @@ export default async function TakeAction() {
   return (
     <div>
       <section className="relative h-64 sm:h-80 flex items-center justify-center text-center px-6">
-        <HeroImage src={stills[6]} objectPosition="center 5%" />
+        <HeroImage src={stills[6]} objectPosition="center top" />
         <h1 className="relative font-display text-3xl sm:text-4xl text-cream">
           {t("title")}
         </h1>

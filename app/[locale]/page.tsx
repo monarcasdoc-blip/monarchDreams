@@ -62,7 +62,7 @@ export default async function Home() {
             <p className="mt-2 text-lg">{t("impactText")}</p>
             <Link
               href="/milkweed-map"
-              className="inline-block mt-4 border border-cream/60 text-cream px-7 py-3 rounded-full font-medium hover:bg-cream/10 transition-colors"
+              className="inline-block mt-4 bg-monarch-orange hover:bg-monarch-orange-dark text-cream px-7 py-3 rounded-full font-medium transition-colors"
             >
               {t("impactMapCta")}
             </Link>
