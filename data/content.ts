@@ -107,6 +107,11 @@ export const crew: CrewMember[] = [
     name: "Zach Scheitlin",
     headshot: "/images/crew/zach-scheitlin.png",
   },
+  {
+    slug: "jeannelRomero",
+    name: "Jeannel Romero",
+    headshot: "/images/crew/jeannel-romero.jpg",
+  },
   // TODO: bio + headshot pending for this crew member.
   {
     slug: "divyeshSangani",

@@ -60,6 +60,12 @@ export default async function Home() {
               {impact.milkweedCount}+
             </p>
             <p className="mt-2 text-lg">{t("impactText")}</p>
+            <Link
+              href="/milkweed-map"
+              className="inline-block mt-4 border border-cream/60 text-cream px-7 py-3 rounded-full font-medium hover:bg-cream/10 transition-colors"
+            >
+              {t("impactMapCta")}
+            </Link>
           </div>
           <div className="sm:text-right">
             <p className="mb-4 text-cream/90">{t("impactSubtext")}</p>

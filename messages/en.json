@@ -27,6 +27,7 @@
     "impactText": "milkweed plants and counting, planted across Chicago as part of this movement.",
     "impactSubtext": "Change happens one plant, one garden, one school at a time. Here's how you can help it grow.",
     "impactCta": "Take Action",
+    "impactMapCta": "View the Milkweed Map",
     "screeningsHeading": "Screenings",
     "screeningsText": "More screenings coming soon — check back for upcoming dates, or bring the film to your own community.",
     "viewScreenings": "View Screenings →",
@@ -73,6 +74,10 @@
     "zachScheitlin": {
       "role": "Sound Designer/Mixer",
       "bio": "Zach Scheitlin is a sound designer specializing in creating immersive, story-driven audio for film, media, and creative projects. With a strong ear for detail and atmosphere, he crafts soundscapes that enhance emotion, rhythm, and narrative impact. Zach's work blends technical precision with creative intuition, supporting stories from subtle realism to bold, expressive design."
+    },
+    "jeannelRomero": {
+      "role": "Sound Designer/Re-Recording Mixer",
+      "bio": "Jeannel Romero is a Mexican sound designer and re-recording mixer with experience in audio post-production for film, documentary, animation, and video games. He has collaborated on national and international productions, specializing in stereo and 5.1 mixing for cinematic formats. His work is characterized by attention to technical and narrative detail, ensuring that every sound element contributes to the viewer's experience. On this short film, he was responsible for the 5.1 music mix, adapting the score for immersive playback true to the project's artistic vision."
     },
     "divyeshSangani": {
       "role": "Animator",

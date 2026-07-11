@@ -27,6 +27,7 @@
     "impactText": "plantas de algodoncillo sembradas hasta ahora, en todo Chicago como parte de este movimiento.",
     "impactSubtext": "El cambio ocurre una planta, un jardín, una escuela a la vez. Así puedes ayudar a que siga creciendo.",
     "impactCta": "Actúa",
+    "impactMapCta": "Ver el Mapa de Algodoncillo",
     "screeningsHeading": "Proyecciones",
     "screeningsText": "Pronto habrá más proyecciones — vuelve para ver nuevas fechas, o trae la película a tu propia comunidad.",
     "viewScreenings": "Ver Proyecciones →",
@@ -73,6 +74,10 @@
     "zachScheitlin": {
       "role": "Diseñador de Sonido/Mezcla",
       "bio": "Zach Scheitlin es un diseñador de sonido especializado en crear audio inmersivo y narrativo para cine, medios y proyectos creativos. Con un fino oído para el detalle y la atmósfera, construye paisajes sonoros que realzan la emoción, el ritmo y el impacto narrativo. El trabajo de Zach combina precisión técnica con intuición creativa, acompañando historias que van desde el realismo sutil hasta el diseño audaz y expresivo."
+    },
+    "jeannelRomero": {
+      "role": "Diseñador de Sonido/Re-Recording Mixer",
+      "bio": "Jeannel Romero es diseñador sonoro y re-recording mixer mexicano con experiencia en postproducción de audio para cine, documental, animación y videojuegos. Ha colaborado en producciones nacionales e internacionales, especializándose en mezcla estéreo y 5.1 para formatos cinematográficos. Su trabajo se caracteriza por la atención al detalle técnico y narrativo, buscando que cada elemento sonoro contribuya a la experiencia del espectador. En este cortometraje fue responsable de la mezcla 5.1 de la música, adaptando la banda sonora para una reproducción inmersiva y fiel a la visión artística del proyecto."
     },
     "divyeshSangani": {
       "role": "Animador",
