@@ -118,11 +118,10 @@ export const crew: CrewMember[] = [
     name: "Divyesh Sangani",
     headshot: "/images/crew/placeholder.svg",
   },
-  // TODO: real headshot pending for Thomas; using placeholder for now.
   {
     slug: "thomasMcDonnell",
     name: "Thomas McDonnell",
-    headshot: "/images/crew/placeholder.svg",
+    headshot: "/images/crew/thomas-mcdonnell.jpeg",
   },
 ];
 
