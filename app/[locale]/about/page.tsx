@@ -37,11 +37,14 @@ export default async function About() {
         </p>
       </section>
 
-      <section className="relative h-64 sm:h-80 flex items-center justify-center text-center px-6">
+      <section className="relative h-96 sm:h-[28rem] flex flex-col items-center justify-center text-center px-6">
         <HeroImage src={stills[3]} objectPosition="center 35%" />
-        <h2 className="relative font-display text-2xl sm:text-3xl text-cream">
+        <h2 className="relative font-display text-3xl sm:text-4xl text-cream">
           {t("storyHeading")}
         </h2>
+        <p className="relative mt-4 max-w-xl text-cream/90 text-base sm:text-lg leading-relaxed">
+          {t("storySubheading")}
+        </p>
       </section>
 
       <section className="mx-auto max-w-3xl px-6 py-16">
@@ -53,9 +56,6 @@ export default async function About() {
         </p>
         <p className="text-lg leading-relaxed text-monarch-black/80 mb-4">
           {t("storyText3")}
-        </p>
-        <p className="text-base italic text-monarch-black/60">
-          {t("storySignature")}
         </p>
       </section>
 

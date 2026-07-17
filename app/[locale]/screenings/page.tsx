@@ -14,22 +14,21 @@ export default async function Screenings() {
 
   return (
     <div>
-      <section className="relative h-64 sm:h-80 flex items-center justify-center text-center px-6">
+      <section className="relative h-96 sm:h-[28rem] flex flex-col items-center justify-center text-center px-6">
         <HeroVideo src="/videos/hero-2.mp4" />
-        <h1 className="relative font-display text-3xl sm:text-4xl text-cream">
+        <h1 className="relative font-display text-4xl sm:text-5xl text-cream">
           {t("title")}
         </h1>
-      </section>
-
-      <div className="mx-auto max-w-6xl px-6 py-16">
-        <p className="text-center text-monarch-black/70 max-w-xl mx-auto mb-12">
+        <p className="relative mt-4 max-w-xl text-cream/90 text-base sm:text-lg leading-relaxed">
           {t("intro")}{" "}
-          <Link href="/host-a-screening" className="text-monarch-orange font-medium hover:text-monarch-orange-dark">
+          <Link href="/host-a-screening" className="text-monarch-orange font-medium hover:text-monarch-orange-dark underline">
             {t("hostLink")}
           </Link>
           .
         </p>
+      </section>
 
+      <div className="mx-auto max-w-6xl px-6 py-16">
         <section className="mb-16">
           <h2 className="font-display text-xl sm:text-2xl mb-6">{t("upcomingHeading")}</h2>
           {upcomingScreenings.length === 0 ? (
