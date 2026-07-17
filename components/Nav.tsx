@@ -20,7 +20,7 @@ export default function Nav() {
 
   return (
     <header className="sticky top-0 z-50 bg-cream/95 backdrop-blur border-b border-monarch-black/10">
-      <div className="mx-auto max-w-6xl px-6 flex items-center justify-between h-18 py-3">
+      <div className="px-6 lg:px-10 flex items-center justify-between h-18 py-3">
         <Link
           href="/"
           className="font-display text-lg lg:text-base xl:text-xl text-monarch-black leading-tight shrink-0"
@@ -30,7 +30,7 @@ export default function Nav() {
         </Link>
 
         <div className="hidden lg:flex items-center gap-3 xl:gap-5">
-          <nav className="flex items-center gap-3 xl:gap-5 text-sm font-medium">
+          <nav className="flex items-center gap-3 xl:gap-5 text-base font-medium">
             {links.map((link) => {
               const active = pathname === link.href;
               return (
@@ -63,7 +63,7 @@ export default function Nav() {
       </div>
 
       {open && (
-        <nav className="lg:hidden border-t border-monarch-black/10 bg-cream px-6 py-4 flex flex-col gap-4 text-sm font-medium">
+        <nav className="lg:hidden border-t border-monarch-black/10 bg-cream px-6 py-4 flex flex-col gap-4 text-base font-medium">
           {links.map((link) => {
             const active = pathname === link.href;
             return (

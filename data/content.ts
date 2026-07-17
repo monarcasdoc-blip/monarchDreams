@@ -93,9 +93,10 @@ export const crew: CrewMember[] = [
     headshot: "/images/crew/dylan-martis.jpg",
   },
   {
-    slug: "jackHoac",
-    name: "Jack Hoac",
-    headshot: "/images/crew/jack-hoac.png",
+    slug: "divyeshSangani",
+    name: "Divyesh Sangani",
+    headshot: "/images/crew/divyesh-sangani.jpg",
+    headshotPosition: "50% 20%",
   },
   {
     slug: "karinaRivero",
@@ -112,11 +113,10 @@ export const crew: CrewMember[] = [
     name: "Jeannel Romero",
     headshot: "/images/crew/jeannel-romero.jpg",
   },
-  // TODO: bio + headshot pending for this crew member.
   {
-    slug: "divyeshSangani",
-    name: "Divyesh Sangani",
-    headshot: "/images/crew/placeholder.svg",
+    slug: "jackHoac",
+    name: "Jack Hoac",
+    headshot: "/images/crew/jack-hoac.png",
   },
   {
     slug: "thomasMcDonnell",

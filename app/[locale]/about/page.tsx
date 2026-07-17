@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
-import { crew } from "@/data/content";
+import { crew, stills } from "@/data/content";
 import CrewCard from "@/components/CrewCard";
-import HeroVideo from "@/components/HeroVideo";
+import HeroImage from "@/components/HeroImage";
 
 export const metadata: Metadata = {
   title: "About the Film | Sueños de una Monarca",
@@ -37,16 +37,26 @@ export default async function About() {
         </p>
       </section>
 
-      <section className="relative py-16 text-cream overflow-hidden">
-        <HeroVideo src="/videos/hero-2.mp4" />
-        <div className="relative mx-auto max-w-3xl px-6">
-          <h2 className="font-display text-2xl sm:text-3xl mb-5 text-monarch-orange">
-            {t("storyHeading")}
-          </h2>
-          <p className="text-lg leading-relaxed text-cream/85">
-            {t("storyText")}
-          </p>
-        </div>
+      <section className="relative h-64 sm:h-80 flex items-center justify-center text-center px-6">
+        <HeroImage src={stills[3]} objectPosition="center 35%" />
+        <h2 className="relative font-display text-2xl sm:text-3xl text-cream">
+          {t("storyHeading")}
+        </h2>
+      </section>
+
+      <section className="mx-auto max-w-3xl px-6 py-16">
+        <p className="text-lg leading-relaxed text-monarch-black/80 mb-4">
+          {t("storyText1")}
+        </p>
+        <p className="text-lg leading-relaxed text-monarch-black/80 mb-4">
+          {t("storyText2")}
+        </p>
+        <p className="text-lg leading-relaxed text-monarch-black/80 mb-4">
+          {t("storyText3")}
+        </p>
+        <p className="text-base italic text-monarch-black/60">
+          {t("storySignature")}
+        </p>
       </section>
 
       <section className="mx-auto max-w-6xl px-6 py-16">
