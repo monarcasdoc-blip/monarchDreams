@@ -3,6 +3,7 @@
 import { useRouter } from "next/navigation";
 import { useState, type FormEvent } from "react";
 import { supabase } from "@/lib/supabase/client";
+import type { FormStrings } from "@/app/admin/dictionary";
 
 const inputClass =
   "w-full rounded-lg border border-monarch-black/20 bg-white px-4 py-2.5 text-monarch-black focus:outline-none focus:ring-2 focus:ring-monarch-orange";
@@ -10,7 +11,7 @@ const labelClass = "block text-sm font-medium text-monarch-black/80 mb-1.5";
 
 type Status = "idle" | "submitting" | "error";
 
-export default function OfficialPinForm() {
+export default function OfficialPinForm({ t }: { t: FormStrings }) {
   const router = useRouter();
   const [status, setStatus] = useState<Status>("idle");
   const [errorMessage, setErrorMessage] = useState("");
@@ -33,7 +34,7 @@ export default function OfficialPinForm() {
     if (photo && photo.size > 0) {
       if (!supabase) {
         setStatus("error");
-        setErrorMessage("Supabase isn't configured, so the photo can't upload.");
+        setErrorMessage(t.supabaseError);
         return;
       }
 
@@ -46,7 +47,7 @@ export default function OfficialPinForm() {
 
       if (uploadError) {
         setStatus("error");
-        setErrorMessage("The photo failed to upload. Please try again.");
+        setErrorMessage(t.uploadError);
         return;
       }
 
@@ -70,19 +71,19 @@ export default function OfficialPinForm() {
       });
 
       const body = await res.json().catch(() => ({}));
-      if (!res.ok) throw new Error(body.error || "Failed to add the pin.");
+      if (!res.ok) throw new Error(body.error || t.addError);
 
       form.reset();
       setStatus("idle");
       setNotice(
-        `Added “${data.get("siteName")}” at ${Number(body.lat).toFixed(4)}, ${Number(
-          body.lng
-        ).toFixed(4)}. Check the map to confirm it landed in the right spot.`
+        `${t.added} “${data.get("siteName")}” ${t.at} ${Number(body.lat).toFixed(
+          4
+        )}, ${Number(body.lng).toFixed(4)}. ${t.addedTail}`
       );
       router.refresh();
     } catch (err) {
       setStatus("error");
-      setErrorMessage(err instanceof Error ? err.message : "Failed to add the pin.");
+      setErrorMessage(err instanceof Error ? err.message : t.addError);
     }
   }
 
@@ -90,7 +91,7 @@ export default function OfficialPinForm() {
     <form onSubmit={handleSubmit} className="space-y-5">
       <div>
         <label className={labelClass} htmlFor="siteName">
-          Site name *
+          {t.siteName} *
         </label>
         <input
           className={inputClass}
@@ -103,7 +104,7 @@ export default function OfficialPinForm() {
 
       <div>
         <label className={labelClass} htmlFor="address">
-          Address *
+          {t.address} *
         </label>
         <input
           className={inputClass}
@@ -112,15 +113,12 @@ export default function OfficialPinForm() {
           placeholder="1800 S Blue Island Ave, Chicago, IL"
           required
         />
-        <p className="text-xs text-monarch-black/50 mt-1">
-          Geocoded automatically. Include the city and state — the pin shows at this
-          exact spot, so use public sites only.
-        </p>
+        <p className="text-xs text-monarch-black/50 mt-1">{t.addressHint}</p>
       </div>
 
       <div>
         <label className={labelClass} htmlFor="milkweedCount">
-          Number of milkweed
+          {t.count}
         </label>
         <input
           className={inputClass}
@@ -132,23 +130,18 @@ export default function OfficialPinForm() {
           inputMode="numeric"
           placeholder="200"
         />
-        <p className="text-xs text-monarch-black/50 mt-1">
-          Optional — leave blank if you don&apos;t have an exact number.
-        </p>
+        <p className="text-xs text-monarch-black/50 mt-1">{t.countHint}</p>
       </div>
 
       <fieldset className="border border-monarch-black/15 rounded-lg p-4">
         <legend className="text-sm font-medium text-monarch-black/80 px-1">
-          Event (optional)
+          {t.eventLegend}
         </legend>
-        <p className="text-xs text-monarch-black/50 mb-3">
-          Fill this in if the planting happened as part of an event — a community
-          planting day, a school workshop.
-        </p>
+        <p className="text-xs text-monarch-black/50 mb-3">{t.eventHint}</p>
 
         <div className="mb-4">
           <label className={labelClass} htmlFor="eventName">
-            Event name
+            {t.eventName}
           </label>
           <input
             className={inputClass}
@@ -160,7 +153,7 @@ export default function OfficialPinForm() {
 
         <div>
           <label className={labelClass} htmlFor="eventDate">
-            Event date
+            {t.eventDate}
           </label>
           <input className={inputClass} id="eventDate" name="eventDate" type="date" />
         </div>
@@ -168,7 +161,7 @@ export default function OfficialPinForm() {
 
       <div>
         <label className={labelClass} htmlFor="description">
-          Description
+          {t.description}
         </label>
         <textarea
           className={inputClass}
@@ -181,10 +174,10 @@ export default function OfficialPinForm() {
 
       <div>
         <label className={labelClass} htmlFor="photo">
-          Photo
+          {t.photo}
         </label>
         <input className={inputClass} id="photo" name="photo" type="file" accept="image/*" />
-        <p className="text-xs text-monarch-black/50 mt-1">Optional.</p>
+        <p className="text-xs text-monarch-black/50 mt-1">{t.optional}</p>
       </div>
 
       {status === "error" && <p className="text-sm text-red-600">{errorMessage}</p>}
@@ -195,7 +188,7 @@ export default function OfficialPinForm() {
         disabled={status === "submitting"}
         className="bg-monarch-orange hover:bg-monarch-orange-dark disabled:opacity-60 transition-colors text-cream px-8 py-3 rounded-full font-medium"
       >
-        {status === "submitting" ? "Adding…" : "Add pin"}
+        {status === "submitting" ? t.adding : t.add}
       </button>
     </form>
   );

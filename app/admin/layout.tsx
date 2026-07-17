@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
 import { Inter, Fraunces } from "next/font/google";
 import "../globals.css";
+import AdminLangToggle from "@/components/AdminLangToggle";
+import { getAdminLang } from "./lang";
+import { getAdminDict } from "./dictionary";
 
 const inter = Inter({
   variable: "--font-sans",
@@ -22,12 +25,18 @@ export const metadata: Metadata = {
   robots: { index: false, follow: false },
 };
 
-export default function AdminLayout({
+export default async function AdminLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
+  const lang = await getAdminLang();
+  const t = getAdminDict(lang);
+
   return (
-    <html lang="en" className={`${inter.variable} ${fraunces.variable} h-full`}>
+    <html lang={lang} className={`${inter.variable} ${fraunces.variable} h-full`}>
       <body className="min-h-full bg-cream text-monarch-black antialiased">
+        <div className="flex justify-end px-6 pt-6">
+          <AdminLangToggle current={lang} ariaLabel={t.toggleAria} />
+        </div>
         {children}
       </body>
     </html>
