@@ -23,14 +23,14 @@ export default function Nav() {
       <div className="px-6 lg:px-10 flex items-center justify-between h-18 py-3">
         <Link
           href="/"
-          className="font-display text-lg lg:text-base xl:text-xl text-monarch-black leading-tight shrink-0"
+          className="font-display text-xl lg:text-xl xl:text-2xl text-monarch-black leading-tight shrink-0"
           onClick={() => setOpen(false)}
         >
           {t("brand")}
         </Link>
 
         <div className="hidden lg:flex items-center gap-3 xl:gap-5">
-          <nav className="flex items-center gap-3 xl:gap-5 text-base font-medium">
+          <nav className="flex items-center gap-3 xl:gap-5 text-sm font-medium">
             {links.map((link) => {
               const active = pathname === link.href;
               return (
