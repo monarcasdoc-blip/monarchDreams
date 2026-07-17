@@ -45,13 +45,30 @@ Promotional/informational website for the documentary *Sueños de una Monarca* (
 
 User-submitted photos of planted milkweed, shown as pins on a Leaflet map (`components/MilkweedMap.tsx`, CartoDB Positron tiles, custom monarch-pod marker icon at `public/images/milkweed-marker.svg`).
 
+**Two kinds of pin**, distinguished by the `pin_type` column on the `public_milkweed_pins` view and rendered with different markers:
+- `community` — public submissions (green pod, `milkweed-marker.svg`), coordinates jittered, photo required, moderated.
+- `official` — milkweed planted by Claudia / Women for Green Spaces (orange pod, `milkweed-marker-official.svg`), **not** jittered, photo optional, added via the admin page. Also carries `milkweed_count` and an optional event (`event_name` + `event_date`); a non-null `event_name` *is* the "there was an event attached" flag, so there's no separate boolean. A date without a name is rejected (it would render as a dangling "· May 3"); a name without a date is fine. All are null for community pins, which don't collect them. The two SVGs are deliberately the same silhouette and differ only in colour, so they read as one family; a legend under the map explains them (`MilkweedMap.legendCommunity` / `legendOfficial`).
+
+Official pins live in their own table, `milkweed_official_pins`, rather than as a flag on `milkweed_submissions` — **this is a security boundary, not an organizational preference**. The anon insert policy on `milkweed_submissions` only checks `status = 'pending'`, so if "official" were a column there, anyone could POST a row flagged official straight to Supabase's REST API using the publishable key (public by design) and it would render with Claudia's marker the moment it was approved. `milkweed_official_pins` instead has RLS on with *no policies at all*, so the anon key cannot touch it; only the service-role key can write, and that key is server-only (`lib/supabase/admin.ts`, `SUPABASE_SERVICE_ROLE_KEY`, no `NEXT_PUBLIC_` prefix). Don't "simplify" this into one table.
+
 Flow: submitter fills out `/milkweed-map/submit` (`PlantMilkweedForm.tsx`) → photo uploads client-side straight to Supabase Storage bucket `milkweed-photos` → form POSTs to `/api/plant-milkweed` → route geocodes the address via Nominatim (`lib/geocode.ts`), **jitters coordinates ~0.5mi for privacy**, inserts a row with `status: 'pending'`. Nothing shows publicly until a project admin flips `status` to `approved` directly in the Supabase Table Editor — there is no in-app admin UI by design (MVP decision, revisit only if asked). The map page reads from the `public_milkweed_pins` view, which only exposes approved rows and never the private `email`/`address` columns.
 
 Schema + RLS policies + storage bucket setup SQL: `supabase/schema.sql` (already run against the live Supabase project). Supabase client: `lib/supabase/client.ts`, exports `null` if env vars are missing so callers must handle the not-configured case explicitly.
 
-The submission form also collects an optional `plant_name` ("Name your plant :)"), stored on `milkweed_submissions` and surfaced in the map popup above the submitter's display name. **Action needed**: since `schema.sql` was already run once against the live project, the new `plant_name` column and the updated `public_milkweed_pins` view definition still need to be applied — run `alter table milkweed_submissions add column if not exists plant_name text;` and re-run the `create or replace view public_milkweed_pins ...` statement (both in `supabase/schema.sql`) in the Supabase SQL editor.
+### Admin page (`/admin/milkweed`)
 
-**Known cleanup needed**: two test rows (`test@example.com`, `deploycheck@example.com`) are sitting in the `milkweed_submissions` table from development testing — delete them via the Supabase dashboard before real moderation begins.
+Where Claudia adds official pins: she types a site name + address and the server geocodes it (same Nominatim path as public submissions, minus the jitter), with an optional photo. Supersedes the earlier "no in-app admin UI" MVP call — moderation of *submissions* is still done in the Supabase Table Editor; only official pins have a UI.
+
+- Lives at `app/admin/` **outside** `app/[locale]` with its own root layout (`app/admin/layout.tsx`). This works because there's no top-level `app/layout.tsx` — Next allows multiple root layouts in that case. It's English-only (internal tool) and `noindex`. `proxy.ts` excludes `admin` from the next-intl matcher, or `/admin` would be redirected to `/en/admin`.
+- Auth (`lib/admin-auth.ts`) is a single shared password (`MILKWEED_ADMIN_PASSWORD`) + an HMAC-signed, httpOnly session cookie (`ADMIN_SESSION_SECRET`, 7-day expiry). There is no session store, so a token can't be revoked early except by rotating the secret (which logs everyone out) — fine for one admin, revisit if this ever needs real accounts.
+- Both the page and `POST /api/admin/official-pins` check the cookie independently; the API check must stay, since gating only the page would leave the endpoint open.
+- `event_date` is a Postgres `date` with no zone. `MilkweedMap.formatEventDate` parses it as `${date}T00:00:00` (local midnight) rather than passing the bare string to `new Date()`, which would read it as UTC midnight and render the *previous* day everywhere west of Greenwich — Chicago included. Verified: a bare parse shows an event entered as May 3 as "May 2".
+
+The submission form also collects an optional `plant_name` ("Name your plant :)"), stored on `milkweed_submissions` and surfaced in the map popup above the submitter's display name.
+
+`supabase/schema.sql` is the single source of truth and is **safe to re-run in full** — every statement is idempotent (`if not exists` / `or replace`, and `drop policy if exists` before each `create policy`). Keep it that way when adding to it: the Supabase SQL editor runs a script in one transaction, so one bare `create policy` throws "already exists" and silently rolls back the *entire* file, applying nothing. As of 2026-07-16 the live project is fully up to date with this file.
+
+Both tables are empty as of 2026-07-16 — the old development test rows (`test@example.com`, `deploycheck@example.com`) have been deleted, so anything in there now is real.
 
 ## Email (Resend)
 
@@ -59,7 +76,9 @@ The submission form also collects an optional `plant_name` ("Name your plant :)"
 
 ## Environment variables
 
-See `.env.example`. All four vars (`NEXT_PUBLIC_SUPABASE_URL`, `NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY`, `RESEND_API_KEY`, `RESEND_FROM_EMAIL`) are set in both `.env.local` (gitignored) and Vercel's project settings. The Supabase publishable key is meant to be public/client-exposed — safe to share.
+See `.env.example`. The original four (`NEXT_PUBLIC_SUPABASE_URL`, `NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY`, `RESEND_API_KEY`, `RESEND_FROM_EMAIL`) are set in both `.env.local` (gitignored) and Vercel's project settings. The Supabase publishable key is meant to be public/client-exposed — safe to share.
+
+Three more were added for the milkweed admin page (2026-07-16): `SUPABASE_SERVICE_ROLE_KEY`, `MILKWEED_ADMIN_PASSWORD`, `ADMIN_SESSION_SECRET`. Unlike the publishable key these are **secrets** — none carry a `NEXT_PUBLIC_` prefix, and the service-role key bypasses RLS entirely, so it must never reach the browser.
 
 ## Assets
 

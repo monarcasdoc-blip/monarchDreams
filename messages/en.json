@@ -164,7 +164,12 @@
     "pinCount": "milkweed plants on the map",
     "emptyState": "No milkweed on the map yet — be the first to add yours!",
     "loadError": "The map couldn't load right now. Please try again later.",
-    "notConfigured": "The milkweed map isn't set up yet."
+    "notConfigured": "The milkweed map isn't set up yet.",
+    "legendCommunity": "Planted by the community",
+    "legendOfficial": "Planted by Claudia & Women for Green Spaces",
+    "popupCount": "{count, plural, one {# milkweed planted} other {# milkweed planted}}",
+    "popupEvent": "Planted at {event}",
+    "popupEventWithDate": "Planted at {event} · {date}"
   },
   "PlantMilkweed": {
     "title": "Add Your Milkweed to the Map",

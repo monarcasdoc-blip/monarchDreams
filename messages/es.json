@@ -164,7 +164,12 @@
     "pinCount": "plantas de algodoncillo en el mapa",
     "emptyState": "Todavía no hay algodoncillo en el mapa — ¡sé el primero en añadir el tuyo!",
     "loadError": "El mapa no pudo cargar en este momento. Inténtalo de nuevo más tarde.",
-    "notConfigured": "El mapa de algodoncillo aún no está configurado."
+    "notConfigured": "El mapa de algodoncillo aún no está configurado.",
+    "legendCommunity": "Sembrado por la comunidad",
+    "legendOfficial": "Sembrado por Claudia y Women for Green Spaces",
+    "popupCount": "{count, plural, one {# algodoncillo sembrado} other {# algodoncillos sembrados}}",
+    "popupEvent": "Sembrado en {event}",
+    "popupEventWithDate": "Sembrado en {event} · {date}"
   },
   "PlantMilkweed": {
     "title": "Añade tu Algodoncillo al Mapa",

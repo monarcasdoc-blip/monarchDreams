@@ -42,6 +42,19 @@ export default async function MilkweedMapPage() {
       <div className="h-[500px] w-full">
         <MilkweedMapLoader pins={pins} />
       </div>
+
+      <div className="flex flex-wrap items-center justify-center gap-x-8 gap-y-3 mt-6">
+        <p className="flex items-center gap-2 text-sm text-monarch-black/70">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src="/images/milkweed-marker.svg" alt="" className="h-6 w-auto" />
+          {t("legendCommunity")}
+        </p>
+        <p className="flex items-center gap-2 text-sm text-monarch-black/70">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src="/images/milkweed-marker-official.svg" alt="" className="h-6 w-auto" />
+          {t("legendOfficial")}
+        </p>
+      </div>
     </div>
   );
 }
