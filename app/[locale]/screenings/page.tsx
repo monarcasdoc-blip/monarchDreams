@@ -19,12 +19,14 @@ export default async function Screenings() {
         <h1 className="relative font-display text-4xl sm:text-5xl text-cream">
           {t("title")}
         </h1>
-        <p className="relative mt-4 max-w-xl text-cream/90 text-base sm:text-lg leading-relaxed">
+        <p className="relative mt-6 sm:mt-8 max-w-xl text-cream/90 text-lg sm:text-xl leading-relaxed">
           {t("intro")}{" "}
-          <Link href="/host-a-screening" className="text-monarch-orange font-medium hover:text-monarch-orange-dark underline">
-            {t("hostLink")}
-          </Link>
-          .
+          <span className="whitespace-nowrap">
+            <Link href="/host-a-screening" className="text-monarch-orange font-medium hover:text-monarch-orange-dark underline">
+              {t("hostLink")}
+            </Link>
+            .
+          </span>
         </p>
       </section>
 

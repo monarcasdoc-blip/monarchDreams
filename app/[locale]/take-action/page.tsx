@@ -46,23 +46,22 @@ export default async function TakeAction() {
 
   return (
     <div>
-      <section className="relative h-64 sm:h-80 flex items-center justify-center text-center px-6">
+      <section className="relative h-96 sm:h-[28rem] flex flex-col items-center justify-center text-center px-6">
         <HeroImage src={stills[6]} objectPosition="center top" />
-        <h1 className="relative font-display text-3xl sm:text-4xl text-cream">
+        <h1 className="relative font-display text-4xl sm:text-5xl text-cream">
           {t("title")}
         </h1>
-      </section>
-
-      <div className="mx-auto max-w-5xl px-6 py-16">
-        <p className="text-center text-monarch-black/70 max-w-xl mx-auto mb-6">
+        <p className="relative mt-6 sm:mt-8 max-w-2xl text-cream/90 text-base sm:text-lg leading-relaxed">
           {t("introBeforeCount")}{" "}
-          <span className="text-milkweed-green font-semibold">
+          <span className="font-semibold text-cream">
             {impact.milkweedCount}+
           </span>{" "}
           {t("introAfterCount")}
         </p>
+      </section>
 
-        <div className="grid gap-6 sm:grid-cols-2 mt-12">
+      <div className="mx-auto max-w-5xl px-6 py-16">
+        <div className="grid gap-6 sm:grid-cols-2">
           {actions.map((action) => (
             <div
               key={action.title}
