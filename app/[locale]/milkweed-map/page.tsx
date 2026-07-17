@@ -39,7 +39,9 @@ export default async function MilkweedMapPage() {
         </p>
       )}
 
-      <div className="h-[500px] w-full">
+      {/* relative z-0 traps Leaflet's hardcoded pane/control z-indexes (400-1000)
+          in their own stacking context, so they can't paint over the sticky nav. */}
+      <div className="relative z-0 h-[500px] w-full">
         <MilkweedMapLoader pins={pins} />
       </div>
 
