@@ -23,24 +23,25 @@ export default async function Home() {
           <p className="text-cream mt-6 max-w-xl text-base sm:text-lg">
             {t("tagline")}
           </p>
-          <div className="mt-8 flex flex-col sm:flex-row gap-4">
-            <Link
-              href="/about"
-              className="bg-monarch-orange hover:bg-monarch-orange-dark transition-colors text-cream px-7 py-3 rounded-full font-medium"
-            >
-              {t("ctaAbout")}
-            </Link>
-            <Link
-              href="/screenings"
-              className="bg-cream/10 border border-cream/60 hover:bg-cream/20 transition-colors text-cream px-7 py-3 rounded-full font-medium"
-            >
-              {t("ctaScreening")}
-            </Link>
-          </div>
         </div>
       </section>
 
-      <section className="mx-auto max-w-3xl px-6 py-20 text-center">
+      <section className="mx-auto max-w-3xl px-6 pt-14 flex flex-col sm:flex-row gap-4 justify-center">
+        <Link
+          href="/about"
+          className="bg-monarch-orange hover:bg-monarch-orange-dark transition-colors text-cream px-7 py-3 rounded-full font-medium text-center"
+        >
+          {t("ctaAbout")}
+        </Link>
+        <Link
+          href="/screenings"
+          className="border-2 border-monarch-orange text-monarch-orange hover:bg-monarch-orange hover:text-cream transition-colors px-7 py-3 rounded-full font-medium text-center"
+        >
+          {t("ctaScreening")}
+        </Link>
+      </section>
+
+      <section className="mx-auto max-w-3xl px-6 pt-10 pb-20 text-center">
         <h2 className="font-display text-2xl sm:text-3xl mb-5">{t("storyHeading")}</h2>
         <p className="text-lg leading-relaxed text-monarch-black/80">
           {t("logline")}
