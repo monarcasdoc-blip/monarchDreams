@@ -6,18 +6,25 @@ import { useLocale, useTranslations } from "next-intl";
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import type { MilkweedPin } from "@/lib/milkweed";
 
-const ICON_SHAPE = {
+// Pod marker points at an exact spot: anchored at its bottom tip.
+const POD_SHAPE = {
   iconSize: [40, 58] as [number, number],
   iconAnchor: [20, 58] as [number, number],
   popupAnchor: [0, -54] as [number, number],
 };
 
-const communityIcon = L.icon({ iconUrl: "/images/milkweed-marker.svg", ...ICON_SHAPE });
+// Official pins — milkweed planted by Claudia / Women for Green Spaces. Green
+// pod (the org is "Women for Green Spaces"), placed at exact coordinates.
+const officialIcon = L.icon({ iconUrl: "/images/milkweed-marker.svg", ...POD_SHAPE });
 
-// Same pod, monarch-orange: milkweed planted by Claudia / Women for Green Spaces.
-const officialIcon = L.icon({
-  iconUrl: "/images/milkweed-marker-official.svg",
-  ...ICON_SHAPE,
+// Community pins — the monarch butterfly from the site logo. These coordinates
+// are jittered ~0.5mi for privacy, so the butterfly is centre-anchored rather
+// than pointing at an exact spot.
+const communityIcon = L.icon({
+  iconUrl: "/images/milkweed-butterfly.svg",
+  iconSize: [42, 42] as [number, number],
+  iconAnchor: [21, 21] as [number, number],
+  popupAnchor: [0, -18] as [number, number],
 });
 
 // Chicago, home base of the movement — sensible default center when pins

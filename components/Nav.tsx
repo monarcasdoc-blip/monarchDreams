@@ -15,6 +15,7 @@ export default function Nav() {
     { href: "/about", label: t("about") },
     { href: "/screenings", label: t("screenings") },
     { href: "/take-action", label: t("takeAction") },
+    { href: "/milkweed-map", label: t("milkweedMap") },
     { href: "/contact", label: t("contact") },
   ];
 
