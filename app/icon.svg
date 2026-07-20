@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <defs>
+    <g id="half">
+      <!-- forewing (upper): large, pointed apex -->
+      <path d="M33 21 C 34 12, 42 6, 51 7 C 60 8, 62 15, 58 21 C 54 27, 42 30, 34 28 Z"
+            fill="#e2690f" stroke="#1a1a1a" stroke-width="3" stroke-linejoin="round"/>
+      <!-- hindwing (lower): smaller, rounded -->
+      <path d="M34 31 C 44 30, 53 35, 52 44 C 51 52, 43 54, 38 50 C 34 46, 33 37, 34 31 Z"
+            fill="#e2690f" stroke="#1a1a1a" stroke-width="3" stroke-linejoin="round"/>
+      <!-- white margin spots -->
+      <circle cx="50" cy="11" r="2.1" fill="#fdfaf5"/>
+      <circle cx="56" cy="17" r="2.1" fill="#fdfaf5"/>
+      <circle cx="47" cy="45" r="1.9" fill="#fdfaf5"/>
+    </g>
+  </defs>
+  <use href="#half"/>
+  <use href="#half" transform="translate(64,0) scale(-1,1)"/>
+  <!-- body: tapered spindle (thorax + abdomen) -->
+  <path d="M32 19 C 35 19, 35.5 25, 35 31 C 34.6 39, 34 47, 32 52 C 30 47, 29.4 39, 29 31 C 28.5 25, 29 19, 32 19 Z"
+        fill="#1a1a1a"/>
+  <!-- head -->
+  <circle cx="32" cy="17.5" r="2.9" fill="#1a1a1a"/>
+  <!-- clubbed antennae -->
+  <path d="M31 16 C 28 11, 26 9, 24.5 8.5" fill="none" stroke="#1a1a1a" stroke-width="2.2" stroke-linecap="round"/>
+  <path d="M33 16 C 36 11, 38 9, 39.5 8.5" fill="none" stroke="#1a1a1a" stroke-width="2.2" stroke-linecap="round"/>
+  <circle cx="24" cy="8" r="1.5" fill="#1a1a1a"/>
+  <circle cx="40" cy="8" r="1.5" fill="#1a1a1a"/>
+</svg>
