@@ -22,9 +22,9 @@ const officialIcon = L.icon({ iconUrl: "/images/milkweed-marker.svg", ...POD_SHA
 // than pointing at an exact spot.
 const communityIcon = L.icon({
   iconUrl: "/images/milkweed-butterfly.svg",
-  iconSize: [42, 42] as [number, number],
-  iconAnchor: [21, 21] as [number, number],
-  popupAnchor: [0, -18] as [number, number],
+  iconSize: [34, 34] as [number, number],
+  iconAnchor: [17, 17] as [number, number],
+  popupAnchor: [0, -15] as [number, number],
 });
 
 // Chicago, home base of the movement — sensible default center when pins
