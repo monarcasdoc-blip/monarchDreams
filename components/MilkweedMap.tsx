@@ -57,7 +57,7 @@ export default function MilkweedMap({ pins }: { pins: MilkweedPin[] }) {
     <MapContainer
       center={center}
       zoom={pins.length > 0 ? 6 : 4}
-      scrollWheelZoom={false}
+      scrollWheelZoom={true}
       className="h-full w-full rounded-xl"
     >
       <TileLayer
