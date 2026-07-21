@@ -7,7 +7,11 @@ import { hostAScreeningEmail } from "@/data/content";
 type Payload = {
   displayName?: string;
   email: string;
-  address: string;
+  // City + state are required so geocoding always lands in the right area;
+  // street is optional and just makes the (jittered) pin closer.
+  street?: string;
+  city: string;
+  state: string;
   plantName?: string;
   photoUrl: string;
 };
@@ -26,7 +30,16 @@ function escapeHtml(value: string): string {
 // runs, so a mail failure (or unset RESEND_API_KEY) must never fail the request
 // — it just gets logged. The admin link points back at whichever host the
 // submission came from (both domains serve the same admin page).
-async function notifySubmission(request: Request, sub: Payload): Promise<void> {
+async function notifySubmission(
+  request: Request,
+  sub: {
+    displayName?: string;
+    plantName?: string;
+    email: string;
+    address: string;
+    photoUrl: string;
+  }
+): Promise<void> {
   const apiKey = process.env.RESEND_API_KEY;
   if (!apiKey) {
     console.warn("RESEND_API_KEY not set — skipping milkweed submission notification");
@@ -93,11 +106,17 @@ async function notifySubmission(request: Request, sub: Payload): Promise<void> {
 export async function POST(request: Request) {
   const body = (await request.json()) as Partial<Payload>;
 
-  const required: (keyof Payload)[] = ["email", "address", "photoUrl"];
-  const missing = required.filter((field) => !body[field]);
-  if (missing.length > 0) {
+  const email = typeof body.email === "string" ? body.email.trim() : "";
+  const street = typeof body.street === "string" ? body.street.trim() : "";
+  const city = typeof body.city === "string" ? body.city.trim() : "";
+  const state = typeof body.state === "string" ? body.state.trim() : "";
+  const photoUrl = typeof body.photoUrl === "string" ? body.photoUrl : "";
+
+  // City + state are required (street optional) so the geocoder always has
+  // enough to land in the right area rather than guessing at a bare street name.
+  if (!email || !city || !state || !photoUrl) {
     return NextResponse.json(
-      { error: `Missing required field(s): ${missing.join(", ")}` },
+      { error: "Email, city, state, and a photo are all required." },
       { status: 400 }
     );
   }
@@ -110,10 +129,18 @@ export async function POST(request: Request) {
     );
   }
 
-  const coordinates = await geocodeAddress(body.address!);
+  const address = [street, city, state].filter(Boolean).join(", ");
+
+  let coordinates = await geocodeAddress(address);
+  // Nominatim may not know a given street; rather than fail the submission,
+  // fall back to city + state so the pin still lands in the right area (it's
+  // jittered anyway, so street-level precision isn't essential).
+  if (!coordinates && street) {
+    coordinates = await geocodeAddress([city, state].join(", "));
+  }
   if (!coordinates) {
     return NextResponse.json(
-      { error: "We couldn't find that address. Please check it and try again." },
+      { error: "We couldn't find that location. Double-check the city and state." },
       { status: 422 }
     );
   }
@@ -122,12 +149,12 @@ export async function POST(request: Request) {
 
   const { error } = await supabase.from("milkweed_submissions").insert({
     display_name: body.displayName || null,
-    email: body.email,
-    address: body.address,
+    email,
+    address,
     plant_name: body.plantName || null,
     lat: jittered.lat,
     lng: jittered.lng,
-    photo_url: body.photoUrl,
+    photo_url: photoUrl,
     status: "pending",
   });
 
@@ -142,10 +169,10 @@ export async function POST(request: Request) {
   // Best-effort notification — never let a mail failure fail a saved submission.
   await notifySubmission(request, {
     displayName: body.displayName,
-    email: body.email!,
-    address: body.address!,
     plantName: body.plantName,
-    photoUrl: body.photoUrl!,
+    email,
+    address,
+    photoUrl,
   }).catch((err) => console.error("Milkweed notify email failed", err));
 
   return NextResponse.json({ ok: true });

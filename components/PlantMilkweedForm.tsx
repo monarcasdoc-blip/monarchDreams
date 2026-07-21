@@ -67,7 +67,9 @@ export default function PlantMilkweedForm() {
         body: JSON.stringify({
           displayName: data.get("displayName"),
           email: data.get("email"),
-          address: data.get("address"),
+          street: data.get("street"),
+          city: data.get("city"),
+          state: data.get("state"),
           plantName: data.get("plantName"),
           photoUrl: publicUrl,
         }),
@@ -111,9 +113,36 @@ export default function PlantMilkweedForm() {
       </div>
 
       <div>
-        <label className={labelClass} htmlFor="address">{t("address")} *</label>
-        <input className={inputClass} id="address" name="address" required />
-        <p className="text-xs text-monarch-black/50 mt-1">{t("addressNote")}</p>
+        <label className={labelClass} htmlFor="street">{t("address")}</label>
+        <input
+          className={inputClass}
+          id="street"
+          name="street"
+          placeholder={t("addressPlaceholder")}
+        />
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-4">
+          <div>
+            <label className={labelClass} htmlFor="city">{t("city")} *</label>
+            <input
+              className={inputClass}
+              id="city"
+              name="city"
+              placeholder={t("cityPlaceholder")}
+              required
+            />
+          </div>
+          <div>
+            <label className={labelClass} htmlFor="state">{t("state")} *</label>
+            <input
+              className={inputClass}
+              id="state"
+              name="state"
+              placeholder={t("statePlaceholder")}
+              required
+            />
+          </div>
+        </div>
+        <p className="text-xs text-monarch-black/50 mt-2">{t("addressNote")}</p>
       </div>
 
       <div>
