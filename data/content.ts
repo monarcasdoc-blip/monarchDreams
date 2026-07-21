@@ -144,4 +144,11 @@ export const takeAction = {
   donateOrg: "Women for Green Spaces",
 };
 
+// Public-facing contact address shown in the footer (a mailto: visitors click).
 export const hostAScreeningEmail = "jtrejofilms@outlook.com";
+
+// Internal recipient for automated form notifications (contact, host-a-screening,
+// milkweed submissions). Kept separate from the public footer address above:
+// Outlook was junking Resend's automated mail, and this Gmail delivers reliably,
+// but we don't want a personal Gmail exposed publicly in the footer.
+export const notificationEmail = "juliantrejo1@gmail.com";

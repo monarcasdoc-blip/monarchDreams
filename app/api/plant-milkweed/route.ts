@@ -2,7 +2,7 @@ import { NextResponse } from "next/server";
 import { Resend } from "resend";
 import { supabase } from "@/lib/supabase/client";
 import { geocodeAddress, jitterCoordinates } from "@/lib/geocode";
-import { hostAScreeningEmail } from "@/data/content";
+import { notificationEmail } from "@/data/content";
 
 type Payload = {
   displayName?: string;
@@ -91,7 +91,7 @@ async function notifySubmission(
   const resend = new Resend(apiKey);
   const { error } = await resend.emails.send({
     from: `Sueños de una Monarca <${fromEmail}>`,
-    to: hostAScreeningEmail,
+    to: notificationEmail,
     replyTo: sub.email,
     subject: `New milkweed submission — ${label}`,
     text,

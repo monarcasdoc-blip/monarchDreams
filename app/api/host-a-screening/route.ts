@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 import { Resend } from "resend";
-import { hostAScreeningEmail } from "@/data/content";
+import { notificationEmail } from "@/data/content";
 
 type Payload = {
   firstName: string;
@@ -46,7 +46,7 @@ export async function POST(request: Request) {
 
   const { error } = await resend.emails.send({
     from: `Sueños de una Monarca <${fromEmail}>`,
-    to: hostAScreeningEmail,
+    to: notificationEmail,
     replyTo: body.email,
     subject: `Host a Screening request — ${body.firstName} ${body.lastName}`,
     text: [
