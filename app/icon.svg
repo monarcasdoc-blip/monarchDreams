@@ -1,4 +1,7 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+<!-- viewBox y-shifted by -4.3 so the butterfly (whose artwork centre sits at
+     y≈27.7, above the geometric middle) is vertically centred in the square
+     icon — otherwise it reads as shifted up in a browser tab. -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -4.3 64 64" width="64" height="64">
   <defs>
     <g id="half">
       <!-- forewing (upper): large, pointed apex -->
