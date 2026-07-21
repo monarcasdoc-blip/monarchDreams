@@ -23,9 +23,10 @@ export const adminDict = {
       tail: ") in your environment, then reload.",
     },
     page: {
+      adminTitle: "Milkweed admin",
       title: "Official milkweed pins",
       intro:
-        "Milkweed planted by Claudia or with Women for Green Spaces. These show on the public map with the orange pod marker, at their exact location — so only add public sites like gardens, schools and parks, never someone's home.",
+        "Milkweed planted by Claudia or with Women for Green Spaces. These show on the public map with the green pod marker, at their exact location — so only add public sites like gardens, schools and parks, never someone's home.",
       existing: "Existing pins",
       none: "No official pins yet — add the first one above.",
       unpublished: "unpublished",
@@ -34,6 +35,18 @@ export const adminDict = {
       tableHint1: "To edit or remove a pin, open",
       tableHint2: "in the Supabase Table Editor — set",
       tableHint3: "to false to hide one from the map without deleting it.",
+    },
+    submissions: {
+      heading: "Community submissions",
+      intro:
+        "Plants people added from the public form. Approving shows a butterfly pin on the map (the exact location is already blurred for privacy). Rejecting hides it.",
+      none: "Nothing waiting for review — you're all caught up.",
+      noName: "Anonymous",
+      approve: "Approve",
+      reject: "Reject",
+      approving: "Approving…",
+      rejecting: "Rejecting…",
+      error: "Something went wrong. Please try again.",
     },
     login: {
       heading: "Milkweed admin",
@@ -78,9 +91,10 @@ export const adminDict = {
       tail: ") en tu entorno y recarga.",
     },
     page: {
+      adminTitle: "Panel de algodoncillo",
       title: "Puntos oficiales de algodoncillo",
       intro:
-        "Algodoncillo plantado por Claudia o con Women for Green Spaces. Aparecen en el mapa público con el marcador naranja, en su ubicación exacta, así que agrega solo sitios públicos como jardines, escuelas y parques, nunca la casa de alguien.",
+        "Algodoncillo plantado por Claudia o con Women for Green Spaces. Aparecen en el mapa público con el marcador verde, en su ubicación exacta, así que agrega solo sitios públicos como jardines, escuelas y parques, nunca la casa de alguien.",
       existing: "Puntos existentes",
       none: "Aún no hay puntos oficiales — agrega el primero arriba.",
       unpublished: "no publicado",
@@ -89,6 +103,18 @@ export const adminDict = {
       tableHint1: "Para editar o eliminar un punto, abre",
       tableHint2: "en el Editor de Tablas de Supabase — pon",
       tableHint3: "en false para ocultarlo del mapa sin borrarlo.",
+    },
+    submissions: {
+      heading: "Envíos de la comunidad",
+      intro:
+        "Plantas que la gente agregó desde el formulario público. Al aprobar aparece un punto con mariposa en el mapa (la ubicación exacta ya está difuminada por privacidad). Al rechazar se oculta.",
+      none: "No hay nada pendiente de revisión — estás al día.",
+      noName: "Anónimo",
+      approve: "Aprobar",
+      reject: "Rechazar",
+      approving: "Aprobando…",
+      rejecting: "Rechazando…",
+      error: "Algo salió mal. Inténtalo de nuevo.",
     },
     login: {
       heading: "Panel de algodoncillo",
@@ -128,6 +154,7 @@ export const adminDict = {
 export type AdminDict = (typeof adminDict)[AdminLang];
 export type LoginStrings = AdminDict["login"];
 export type FormStrings = AdminDict["form"];
+export type SubmissionsStrings = AdminDict["submissions"];
 
 export function getAdminDict(lang: AdminLang): AdminDict {
   return adminDict[lang];

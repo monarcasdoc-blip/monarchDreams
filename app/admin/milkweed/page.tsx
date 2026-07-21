@@ -2,6 +2,9 @@ import { adminAuthConfigured, isAdminAuthed } from "@/lib/admin-auth";
 import { supabaseAdmin } from "@/lib/supabase/admin";
 import AdminLoginForm from "@/components/AdminLoginForm";
 import OfficialPinForm from "@/components/OfficialPinForm";
+import PendingSubmissions, {
+  type PendingSubmission,
+} from "@/components/PendingSubmissions";
 import { getAdminLang } from "../lang";
 import { getAdminDict } from "../dictionary";
 
@@ -19,6 +22,23 @@ type OfficialPin = {
   created_at: string;
   published: boolean;
 };
+
+async function getPendingSubmissions(): Promise<PendingSubmission[]> {
+  if (!supabaseAdmin) return [];
+
+  const { data, error } = await supabaseAdmin
+    .from("milkweed_submissions")
+    .select("id, display_name, plant_name, email, address, photo_url, created_at")
+    .eq("status", "pending")
+    .order("created_at", { ascending: false });
+
+  if (error) {
+    console.error("Failed to load pending submissions", error);
+    return [];
+  }
+
+  return data ?? [];
+}
 
 async function getOfficialPins(): Promise<OfficialPin[]> {
   if (!supabaseAdmin) return [];
@@ -63,12 +83,28 @@ export default async function AdminMilkweedPage() {
     return <AdminLoginForm t={t.login} />;
   }
 
-  const pins = await getOfficialPins();
+  const [pending, pins] = await Promise.all([
+    getPendingSubmissions(),
+    getOfficialPins(),
+  ]);
 
   return (
     <main className="mx-auto max-w-2xl px-6 py-16">
-      <h1 className="font-display text-3xl mb-2">{t.page.title}</h1>
-      <p className="text-monarch-black/70 mb-10 leading-relaxed">{t.page.intro}</p>
+      <h1 className="font-display text-3xl mb-10">{t.page.adminTitle}</h1>
+
+      <section className="mb-16">
+        <h2 className="font-display text-xl mb-1">
+          {t.submissions.heading}
+          {pending.length > 0 && ` (${pending.length})`}
+        </h2>
+        <p className="text-monarch-black/70 text-sm mb-5 leading-relaxed">
+          {t.submissions.intro}
+        </p>
+        <PendingSubmissions submissions={pending} t={t.submissions} />
+      </section>
+
+      <h2 className="font-display text-2xl mb-2">{t.page.title}</h2>
+      <p className="text-monarch-black/70 mb-8 leading-relaxed">{t.page.intro}</p>
 
       <OfficialPinForm t={t.form} />
 
