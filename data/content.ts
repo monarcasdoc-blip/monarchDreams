@@ -10,7 +10,14 @@ export type Screening = {
   laurel?: string;
 };
 
-export const upcomingScreenings: Screening[] = [];
+export const upcomingScreenings: Screening[] = [
+  {
+    festival: "Chicago Climate Week",
+    location: "Chicago, Illinois",
+    date: "Saturday, July 25, 2026 · 3:15 PM CST",
+    url: "https://luma.com/hkwr6pq5",
+  },
+];
 
 export const pastScreenings: Screening[] = [
   {
