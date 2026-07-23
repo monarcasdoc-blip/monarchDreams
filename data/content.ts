@@ -13,9 +13,10 @@ export type Screening = {
 export const upcomingScreenings: Screening[] = [
   {
     festival: "Chicago Climate Week",
-    location: "Chicago, Illinois",
+    location: "mHub, Chicago, Illinois",
     date: "Saturday, July 25, 2026 · 3:15 PM CST",
     url: "https://luma.com/hkwr6pq5",
+    laurel: "/images/laurels/chicago-climate-week.jpeg",
   },
 ];
 
