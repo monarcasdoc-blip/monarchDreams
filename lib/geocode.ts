@@ -24,10 +24,12 @@ export async function geocodeAddress(address: string): Promise<Coordinates | nul
 }
 
 // Randomly offsets a coordinate by up to `maxMiles` in a random direction, so
-// the public map never plots a submitter's exact home address.
+// the public map never plots a submitter's exact home address. Was 0.5mi;
+// halved (2026-07-27) so pins sit noticeably closer to the entered address
+// while still never marking the exact spot.
 export function jitterCoordinates(
   { lat, lng }: Coordinates,
-  maxMiles = 0.5
+  maxMiles = 0.25
 ): Coordinates {
   const earthRadiusMiles = 3958.8;
   const distance = Math.random() * maxMiles;
