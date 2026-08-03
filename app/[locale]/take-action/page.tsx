@@ -34,7 +34,7 @@ export default async function TakeAction() {
       title: t("plantTitle"),
       description: t("plantDescription"),
       linkLabel: t("plantLink"),
-      href: "https://xerces.org/milkweed",
+      href: "https://plantsformonarchs.org/",
     },
     {
       title: t("spreadTitle"),
