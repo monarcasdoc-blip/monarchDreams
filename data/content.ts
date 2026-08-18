@@ -12,11 +12,11 @@ export type Screening = {
 
 export const upcomingScreenings: Screening[] = [
   {
-    festival: "Chicago Climate Week",
-    location: "mHub, Chicago, Illinois",
-    date: "Saturday, July 25, 2026 · 3:15 PM CST",
-    url: "https://luma.com/hkwr6pq5",
-    laurel: "/images/laurels/chicago-climate-week.jpeg",
+    festival: "Climate Film Festival",
+    location: "New York City",
+    date: "Sunday, September 20, 2026 · 12:30 PM EST",
+    url: "https://www.climatefilmfest.com/programs/matriarchs-macgyvers-doc-shorts/",
+    laurel: "/images/laurels/climate-film-fest.jpeg",
   },
 ];
 
@@ -61,6 +61,13 @@ export const pastScreenings: Screening[] = [
     location: "Chicago, Illinois",
     date: "June 28, 2026",
     url: "https://www.fieldmuseum.org/activity/pollinator-week",
+  },
+  {
+    festival: "Chicago Climate Week",
+    location: "Chicago, Illinois",
+    date: "July 25, 2026",
+    url: "https://luma.com/hkwr6pq5",
+    laurel: "/images/laurels/chicago-climate-week.jpeg",
   },
 ];
 
