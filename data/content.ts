@@ -10,15 +10,7 @@ export type Screening = {
   laurel?: string;
 };
 
-export const upcomingScreenings: Screening[] = [
-  {
-    festival: "Climate Film Festival",
-    location: "New York City",
-    date: "Sunday, September 20, 2026 · 12:30 PM EST",
-    url: "https://www.climatefilmfest.com/programs/matriarchs-macgyvers-doc-shorts/",
-    laurel: "/images/laurels/climate-film-fest.jpeg",
-  },
-];
+export const upcomingScreenings: Screening[] = [];
 
 export const pastScreenings: Screening[] = [
   {
@@ -68,6 +60,37 @@ export const pastScreenings: Screening[] = [
     date: "July 25, 2026",
     url: "https://luma.com/hkwr6pq5",
     laurel: "/images/laurels/chicago-climate-week.jpeg",
+  },
+  {
+    festival: "Shorts México Film Festival",
+    location: "Mexico City, Mexico",
+    date: "September 10, 2026",
+    laurel: "/images/laurels/shorts-mexico.jpeg",
+  },
+  {
+    festival: "Climate Film Festival",
+    location: "New York City",
+    date: "September 20, 2026",
+    url: "https://www.climatefilmfest.com/programs/matriarchs-macgyvers-doc-shorts/",
+    laurel: "/images/laurels/climate-film-fest.jpeg",
+  },
+  {
+    festival: "Backyard Docs Film Festival",
+    location: "Pittsburgh, Pennsylvania",
+    date: "September 26, 2026",
+    laurel: "/images/laurels/backyard-docs.jpeg",
+  },
+  {
+    festival: "Sheboygan Film Festival",
+    location: "Sheboygan, Wisconsin",
+    date: "October 4, 2026",
+    laurel: "/images/laurels/sheboygan.jpeg",
+  },
+  {
+    festival: "Houston Cinema Arts Festival",
+    location: "Houston, Texas",
+    date: "October 10, 2026",
+    laurel: "/images/laurels/houston-cinema-arts.jpeg",
   },
 ];
 
