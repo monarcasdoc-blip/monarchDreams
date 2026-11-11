@@ -10,7 +10,15 @@ export type Screening = {
   laurel?: string;
 };
 
-export const upcomingScreenings: Screening[] = [];
+export const upcomingScreenings: Screening[] = [
+  {
+    festival: "Bloomberg Green Docs @ DOC NYC",
+    location: "New York City",
+    date: "November 13, 2026",
+    url: "https://www.docnyc.net/film/bloomberg-green-docs/",
+    laurel: "/images/laurels/bloomberg-green-docs.jpeg",
+  },
+];
 
 export const pastScreenings: Screening[] = [
   {
